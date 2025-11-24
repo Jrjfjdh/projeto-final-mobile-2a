@@ -1,107 +1,149 @@
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 
-// Paleta de cores inspirada no Cartoon Network
+// Paleta de cores inspirada no Cartoon Network (Melhorada para o efeito "Toon")
 const CN_COLORS = {
-  PRIMARY_BLUE: "#00B0FF", // Azul vibrante, comum em muitas eras do CN
-  SECONDARY_PURPLE: "#8E24AA", // Roxo para contraste e energia
-  ACCENT_YELLOW: "#FFD700", // Amarelo para destaques
-  TEXT_DARK: "#212121", // Quase preto para textos principais
-  TEXT_LIGHT: "#FFFFFF", // Branco para contrastar
-  CARD_BACKGROUND: "#FFFFFF", // Cartão claro para leitura
-  SHADOW_COLOR: "#424242", // Sombra suave para profundidade
+  PRIMARY_BLUE: "#00B0FF", 
+  SECONDARY_PURPLE: "#8E24AA", 
+  ACCENT_YELLOW: "#FFD700", // Amarelo vibrante - agora será o principal do cartão
+  OUTLINE_BLACK: "#000000", // Preto puro para os contornos
+  TEXT_DARK: "#212121", 
+  TEXT_LIGHT: "#FFFFFF", 
+  BRIGHT_WHITE: "#FAFAFA", // Branco brilhante
+  BACKGROUND_LIGHT: "#E0F7FA", // Um azul ou ciano bem claro para o fundo
 };
 
 export default function Home() {
-  return (
-    <View style={styles.container}>
-      {/* Configuração da barra de status */}
-      <StatusBar barStyle="light-content" backgroundColor={CN_COLORS.PRIMARY_BLUE} />
+  return (
+    <View style={styles.container}>
+      {/* Configuração da barra de status */}
+      <StatusBar barStyle="dark-content" backgroundColor={CN_COLORS.BACKGROUND_LIGHT} />
 
-      {/* Imagem do logo do CN */}
-      <Image
-        style={styles.logo}
-        source={{
-          uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Cartoon_Network_logo.svg/1280px-Cartoon_Network_logo.svg.png",
-        }}
-      />
+      {/* Imagem do logo do CN - URL Corrigida para PNG/Estável */}
+      <Image
+        style={styles.logo}
+        source={{
+          // Nova URL (PNG direto)
+          uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Cartoon-Network-Logo.png",
+        }}
+      />
 
-      {/* Cartão de Conteúdo Estilizado e Moderno */}
-      <View style={styles.card}>
-        <Text style={styles.title}>BEM-VINDO(A)!</Text>
-        <Text style={styles.subtitle}>
-          Pré-requisito para a disciplina de DDM
-        </Text>
+      {/* Cartão de Conteúdo Estilizado com Sombra Toon (Decalque) */}
+      {/* View para simular a sombra "decalque" ou "pop" - efeito cartoon */}
+      <View style={styles.cardContainer}> 
+        <View style={styles.card}>
+          <Text style={styles.title}>BEM-VINDO(A)!</Text>
+          <Text style={styles.subtitle}>
+            Pré-requisito para a disciplina de DDM
+          </Text>
+        </View>
       </View>
 
-      {/* Rodapé com cor de contraste e estilo divertido */}
-      <Text style={styles.footer}>Desenvolvido por Gabriel Neves © 2025</Text>
-    </View>
-  );
+      {/* Faixa de Rodapé com estilo de cenário/cartão */}
+      <View style={styles.footerStrip}>
+        <Text style={styles.footerText}>Desenvolvido por Gabriel Neves © 2025</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    // Gradiente simulado com cores vibrantes do CN
-    backgroundColor: CN_COLORS.PRIMARY_BLUE, 
-    // Uma segunda cor para simular gradiente ou transição
-    // Poderia ser feito com 'LinearGradient' se fosse adicionada a dependência
-    // Para este exemplo, manteremos uma cor principal sólida e usaremos a sombra para profundidade
-    padding: 20,
-  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    // Fundo simples para destacar o cartão
+    backgroundColor: CN_COLORS.BACKGROUND_LIGHT, 
+    padding: 20,
+    justifyContent: 'space-around', // Distribui melhor os elementos
+  },
 
-  logo: {
-    width: 280, // Aumentei um pouco o tamanho do logo
-    height: 140,
-    resizeMode: "contain",
-    marginBottom: 40, // Mais espaço abaixo do logo
-  },
-
-  card: {
-    backgroundColor: CN_COLORS.CARD_BACKGROUND,
-    borderRadius: 25, // Bordas mais arredondadas para um visual suave
-    paddingVertical: 50, // Mais padding vertical
-    paddingHorizontal: 30, // Mais padding horizontal
-    width: "90%",
-    alignItems: "center",
+  logo: {
+    width: 300, 
+    height: 150,
+    resizeMode: "contain",
+    marginTop: 20,
+    // Efeito de contorno fino no logo (opcional, dependendo da imagem)
+  },
     
-    // Sombra mais proeminente e colorida para um visual "pop"
-    shadowColor: CN_COLORS.SECONDARY_PURPLE, // Sombra com cor secundária
-    shadowOpacity: 0.4,
-    shadowOffset: { width: 0, height: 8 }, // Sombra mais para baixo
-    shadowRadius: 15, // Sombra mais espalhada
-    elevation: 12, // Elevação maior para Android
+  // Contêiner que simula uma sombra/decalque 
+  cardContainer: {
+    // A cor de fundo aqui é a cor da "sombra" ou do "decalque"
+    backgroundColor: CN_COLORS.SECONDARY_PURPLE, 
+    borderRadius: 30,
+    // Cria o efeito de profundidade (3D plano)
+    // Deslocamento para mostrar a cor roxa por baixo
+    paddingBottom: 8, 
+    paddingRight: 8,
+    // Garante que o cartão fique dentro
+    position: 'relative', 
+    width: "95%",
+    maxWidth: 400,
+  },
+
+  card: {
+    // Fundo Amarelo Berrante
+    backgroundColor: CN_COLORS.ACCENT_YELLOW,
+    borderRadius: 25, 
+    paddingVertical: 40, 
+    paddingHorizontal: 25, 
+    width: "100%", // Ocupa 100% do container com offset
+    alignItems: "center",
+    // Contorno Preto Grosso ("Toon Outline")
+    borderWidth: 6, 
+    borderColor: CN_COLORS.OUTLINE_BLACK, 
+    
+    // Para que o cartão fique na frente do seu "decalque"
+    position: 'relative', 
+    top: 0,
+    left: 0,
+  },
+
+  title: {
+    fontSize: 40, 
+    fontWeight: "900", 
+    color: CN_COLORS.TEXT_DARK, 
+    marginBottom: 10,
+    textAlign: "center",
+    textShadowColor: CN_COLORS.BRIGHT_WHITE, // Sombra branca suave para pop
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
+    letterSpacing: 2, // Espaçamento de letra para um look de título
+  },
+
+  subtitle: {
+    fontSize: 22, 
+    color: CN_COLORS.TEXT_DARK, 
+    textAlign: "center",
+    fontWeight: '800', 
+    lineHeight: 30, 
+    // Contorno sutil no texto
+    textShadowColor: CN_COLORS.TEXT_LIGHT, 
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 1,
+    letterSpacing: 0.5,
+  },
     
-    // Adicionar uma borda colorida para um toque extra
-    borderWidth: 4,
-    borderColor: CN_COLORS.ACCENT_YELLOW, // Borda amarela vibrante
+  // Novo estilo para o rodapé como uma faixa
+  footerStrip: {
+    backgroundColor: CN_COLORS.PRIMARY_BLUE, // Cor vibrante para a faixa
+    width: '100%',
+    paddingVertical: 15,
+    // Contorno Toon no rodapé
+    borderTopWidth: 6, 
+    borderBottomWidth: 6,
+    borderColor: CN_COLORS.OUTLINE_BLACK, 
+    alignItems: 'center',
+    marginBottom: -20, // Puxa para baixo, dependendo de como o justifyContent funciona
   },
 
-  title: {
-    fontSize: 48, // Título maior
-    fontWeight: "900", // Mais negrito para impacto
-    color: CN_COLORS.TEXT_DARK, // Cor de texto principal para o título
-    marginBottom: 15,
+  footerText: {
+    fontSize: 16, 
+    color: CN_COLORS.TEXT_LIGHT, 
     textAlign: "center",
-    // Poderia usar fontFamily customizada aqui, se disponível
-  },
-
-  subtitle: {
-    fontSize: 24, // Subtítulo maior
-    color: CN_COLORS.TEXT_DARK, 
-    textAlign: "center",
-    fontWeight: '600', // Um pouco mais negrito que o padrão
-    lineHeight: 32, // Espaçamento de linha para melhor leitura
-  },
-
-  footer: {
-    marginTop: 50, // Mais espaço antes do rodapé
-    fontSize: 18, // Rodapé ligeiramente maior
-    color: CN_COLORS.TEXT_LIGHT, // Rodapé em branco para contrastar com o fundo azul
-    textAlign: "center",
-    fontWeight: 'bold', // Rodapé em negrito
-    letterSpacing: 0.5, // Pequeno espaçamento entre letras
+    fontWeight: '900', 
+    letterSpacing: 1,
+    // Efeito de sombra no texto
+    textShadowColor: CN_COLORS.OUTLINE_BLACK,
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 0,
   },
 });

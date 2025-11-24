@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, ScrollView, StatusBar, TouchableOpacity } from "react-native";
 
-// Dados atualizados com as eras do texto narrativo
 const historyData = [
   {
     id: 1,
@@ -62,32 +61,27 @@ export default function PageOne() {
 
   return (
     <View style={styles.mainContainer}>
-      {/* Mudei o style da status bar para cores cartoon */}
       <StatusBar barStyle="light-content" backgroundColor="#FF5722" /> 
       
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         
-        {/* Cabeçalho */}
         <View style={styles.headerContainer}>
           <View style={styles.headerBadge}>
-            <Text style={styles.headerBadgeText}>A HISTÓRIA DOS CARTOONS</Text> {/* Texto mais dinâmico */}
+            <Text style={styles.headerBadgeText}>A HISTÓRIA DO CARTOON NETWORK</Text> {/* Texto mais dinâmico */}
           </View>
           <Text style={styles.mainTitle}>LINHA DO TEMPO CN</Text>
           <Text style={styles.subHeader}>AS ERAS DA ANIMAÇÃO</Text>
         </View>
 
-        {/* Renderização dos Cards */}
         {historyData.map((item) => (
           <View key={item.id} style={styles.card}>
             
-            {/* Imagem de Capa */}
             <Image 
               style={styles.cardImage}
               source={{ uri: item.image }}
             />
             
             <View style={styles.cardContent}>
-              {/* Cabeçalho do Card */}
               <View style={styles.cardHeaderRow}>
                 <View style={styles.titleWrapper}>
                   <Text style={styles.cardTitle}>{item.title}</Text>
@@ -97,31 +91,23 @@ export default function PageOne() {
                 </View>
               </View>
 
-              {/* Divisor em cor de destaque */}
               <View style={styles.divider} />
 
-              {/* Descrição: Exibe o resumo ou o texto completo baseado no estado */}
               <Text style={styles.cardDescription}>
                 {expandedCard === item.id ? item.fullDescription : item.description}
               </Text>
 
-              {/* Botão "Ler Mais / Ler Menos" */}
               <TouchableOpacity 
                 style={styles.readMoreButton}
                 onPress={() => toggleExpand(item.id)}
               >
                 <Text style={styles.readMoreText}>
-                  {expandedCard === item.id ? 'VER MENOS ▲' : 'VER MAIS ▼'} {/* Texto mais ativo */}
+                  {expandedCard === item.id ? 'VER MENOS ▲' : 'VER MAIS ▼'}
                 </Text>
               </TouchableOpacity>
-              
-            </View>
+              </View>
           </View>
         ))}
-
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>FIM DA LINHA DO TEMPO</Text>
-        </View>
 
       </ScrollView>
     </View>
@@ -131,10 +117,10 @@ export default function PageOne() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: "#FBC02D", // Amarelo Vibrante (Mais Cartoon)
+    backgroundColor: "#FBC02D",
   },
   scrollContent: {
-    padding: 15, // Padding reduzido para um visual mais 'full'
+    padding: 15,
     paddingBottom: 60,
   },
   headerContainer: {
@@ -143,10 +129,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   headerBadge: {
-    backgroundColor: "#FF5722", // Laranja/Vermelho (Destaque)
+    backgroundColor: "#FF5722", 
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 8, // Bordas mais definidas
+    borderRadius: 8, 
     marginBottom: 8,
     borderWidth: 3,
     borderColor: "#FFFFFF",
@@ -154,23 +140,23 @@ const styles = StyleSheet.create({
   headerBadgeText: {
     color: "#FFFFFF",
     fontSize: 12,
-    fontWeight: "900", // Mais ousado
-    letterSpacing: 2, // Maior espaçamento para efeito dinâmico
+    fontWeight: "900",
+    letterSpacing: 2, 
   },
   mainTitle: {
-    fontSize: 38, // Aumentado
+    fontSize: 38, 
     fontWeight: "900",
-    color: "#D32F2F", // Vermelho Forte
+    color: "#D32F2F", 
     textAlign: 'center',
     marginBottom: 4,
-    textShadowColor: 'rgba(255, 255, 255, 0.7)', // Efeito de contorno branco
+    textShadowColor: 'rgba(255, 255, 255, 0.7)', 
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1,
     letterSpacing: 1.5,
   },
   subHeader: {
     fontSize: 20,
-    color: "#303F9F", // Azul Escuro
+    color: "#303F9F", 
     fontWeight: "800",
     textShadowColor: 'rgba(0, 0, 0, 0.2)', // Pequena sombra para contraste
     textShadowOffset: { width: 1, height: 1 },

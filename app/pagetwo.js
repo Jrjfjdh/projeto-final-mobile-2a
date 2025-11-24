@@ -1,136 +1,168 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView, StatusBar, TouchableOpacity } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+
+// Variáveis de peso de fonte para uso nos estilos
+const FONT_TITLE_WEIGHT = '900';
+const FONT_SUBTITLE_WEIGHT = '700';
 
 // --- 1. ESTRUTURA DE DADOS (ERAS E DESENHOS CN) ---
-// Adaptada para ter "description" (resumo) e "fullDescription" (detalhes)
+// Mantendo a estrutura original com objetos complexos (detail, simple)
 const CARTOON_NETWORK_ERAS = [
     {
-        id: 1,
         era: "ERA BLOCK / PRÉ-CHECKERBOARD",
         years: "1992–1996",
-        color: "#9C27B0", // Roxo - Destaca o card
+        color: "#9C27B0", // Roxo
         description: "Início do canal; vivia de reprises; não tinha muitos originais ainda.",
-        fullDescription: "Início do canal (1992–1996), que vivia de reprises de Looney Tunes, Tom & Jerry e Hanna-Barbera. Essa fase não tinha produções próprias, mas o bloco World Premiere Toons em 1995 revelou os animadores que salvariam o canal. Desenhos: Looney Tunes, Os Flintstones, Scooby-Doo (reprises), Thundercats, He-Man.",
+        content: [
+            { type: "title", text: "Desenhos Clássicos em Reprise" },
+            { type: "simple", items: [
+                "Looney Tunes", "Merrie Melodies", "Tom & Jerry", "Os Flintstones", 
+                "Scooby-Doo (reprises)", "Thundercats", "He-Man",
+            ]}
+        ],
     },
     {
-        id: 2,
         era: "ERA CHECKERBOARD",
         years: "1996–2004",
         color: "#1B9C46", // Verde Checkerboard
         description: "Nascimento dos Cartoon Cartoons; explosão de originais como Dexter, Meninas Superpoderosas, Johnny Bravo e Coragem.",
-        fullDescription: "Com a Era Checkerboard (1996–2004), o canal engrenou com séries originais de sucesso. A identidade visual era quadriculada. Originais: O Laboratório de Dexter, As Meninas Superpoderosas, Johnny Bravo, Du, Dudu e Edu, Coragem, A Vaca e o Frango, Samurai Jack, KND. Animes: Pokémon, Dragon Ball Z.",
+        content: [
+            { type: "title", text: "Desenhos Originais Principais" },
+            {
+                type: "detail",
+                title: "O Laboratório de Dexter (1996)",
+                sinopse: "Dexter, um menino gênio, tenta constantemente criar novas invenções, enquanto lida com sua irmã Dee Dee.",
+                fame: "Um dos primeiros 'Cartoon Cartoons'.",
+                curiosity: "Criado por Genndy Tartakovsky.",
+            },
+            {
+                type: "detail",
+                title: "As Meninas Superpoderosas (1998)",
+                sinopse: "Três meninas super-heroínas usam seus superpoderes para salvar a cidade de Townsville.",
+                fame: "Fenômeno de merchandising global.",
+                curiosity: "O curta original de 1992 chamava-se 'Whoopass Stew'.",
+            },
+            { type: "title", text: "Outros Clássicos e Animes Populares" },
+            { type: "simple", items: [
+                "Johnny Bravo", "Du, Dudu e Edu", "Coragem, o Cão Covarde", 
+                "Samurai Jack"
+            ]}
+        ],
     },
     {
-        id: 3,
-        era: "ERA CITY / POWERHOUSE",
-        years: "2004–2007",
-        color: "#6D4C41", // Marrom/Laranja da Era City
-        description: "Vinhetas com cidade 3D. Lançamento de Ben 10 e Mansão Foster. Começa a crise com a saída de Ted Turner.",
-        fullDescription: "A Era City (2004–2007) marcou o auge visual e o início da crise gerencial. O logo virou 'CN' e a programação foi dominada por novos sucessos e animes. Originais: Mansão Foster para Amigos Imaginários, Ben 10 (2005), Camp Lazlo, Hi Hi Puffy AmiYumi. Animes: Zatch Bell!, One Piece.",
-    },
-    {
-        id: 4,
-        era: "ERA NERD / CHEETAH",
-        years: "2007–2010",
-        color: "#8B0000", // Vermelho Escuro/Vinho para destacar a crise
-        description: "Crise criativa; foco em live-action (CN Real); queda de audiência. Mas surgiram Flapjack e Chowder.",
-        fullDescription: "A Era Nerd (2007–2010) foi a pior crise: foco em live-action de baixa qualidade ('CN Real') e queda de audiência. Muitos desenhos antigos foram cortados. Os novos hits: Chowder, The Marvelous Misadventures of Flapjack, Ben 10: Força Alienígena, Total Drama Island.",
-    },
-    {
-        id: 5,
-        era: "ERA CHECK IT (Recuperação)",
+        era: "ERA CHECK IT",
         years: "2010–2016",
         color: "#7B1FA2", // Roxo Vibrante da Era Check It
-        description: "Renascimento do canal; identidade vibrante; explosão de hits icônicos: Hora de Aventura, Gumball, Apenas um Show e Steven Universe.",
-        fullDescription: "A Era Check It (2010–2016) foi o grande renascimento, com foco total na animação original e uma estética moderna e vibrante. Sucessos: Hora de Aventura, O Incrível Mundo de Gumball, Apenas um Show, Steven Universe, Titio Avô, Over The Garden Wall. O canal voltou ao topo.",
-    },
-    {
-        id: 6,
-        era: "ERA DIMENSIONAL / REDRAWN",
-        years: "2016–Presente",
-        color: "#0288D1", // Azul - Era Atual
-        description: "Estética moderna, foco em reboots e finais de séries clássicas. O Mundo de Greg é o novo sucesso.",
-        fullDescription: "A Era Dimensional (2016–Presente) foca em um humor mais leve e na estética minimalista. Houve muitos reboots (Ben 10 2016, ThunderCats Roar) e spin-offs (Steven Universe Future). O Mundo de Greg (Craig of the Creek) e Maçã e Cebolinha são os novos sucessos, com o canal se fundindo cada vez mais com a plataforma Max.",
+        description: "Renascimento do canal; identidade vibrante; explosão de hits icônicos: Hora de Aventura, Gumball e Steven Universe.",
+        content: [
+            { type: "title", text: "Grandes Sucessos da Era Moderna" },
+            {
+                type: "detail",
+                title: "Hora de Aventura (2010)",
+                sinopse: "Finn, o humano, e Jake, o cão, exploram a terra pós-apocalíptica e mágica de Ooo.",
+                fame: "A série que definiu a nova era do CN.",
+                curiosity: "Teve origem como um curta da Nickelodeon, mas foi rejeitada por eles.",
+            },
+            {
+                type: "detail",
+                title: "Steven Universe (2013)",
+                sinopse: "Steven, um garoto meio-humano/meio-Gem, vive com as Crystal Gems.",
+                fame: "Elogiado por sua representação de temas LGBTQ+ e diversidade.",
+                curiosity: "Primeira série animada do CN criada exclusivamente por uma mulher, Rebecca Sugar.",
+            },
+            { type: "simple", items: [
+                "O Incrível Mundo de Gumball", "Apenas um Show", "Ursos Sem Curso", 
+                "O Segredo Além do Jardim"
+            ]}
+        ],
     },
 ];
 
-const FONT_TITLE_WEIGHT = '900';
-const FONT_SUBTITLE_WEIGHT = '700';
 
-// --- 2. COMPONENTE PRINCIPAL (Page) ---
+const CartoonDetail = ({ title, sinopse, fame, curiosity }) => (
+    <View style={innerStylesCustom.detailCard}>
+        <Text style={innerStylesCustom.detailTitle}>{title}</Text>
+        <Text style={innerStylesCustom.detailText}><Text style={{ fontWeight: 'bold' }}>Sinopse:</Text> {sinopse}</Text>
+        <Text style={innerStylesCustom.detailText}><Text style={{ fontWeight: 'bold' }}>Curiosidade:</Text> {curiosity}</Text>
+    </View>
+);
+
+const CartoonListItem = ({ items }) => (
+    <View style={innerStylesCustom.listCard}>
+        {items.map((item, index) => (
+            <Text key={index} style={innerStylesCustom.listItemText}>⭐ {item}</Text>
+        ))}
+    </View>
+);
+
+const EraSectionTitle = ({ text }) => (
+    <View style={innerStylesCustom.sectionTitleContainer}>
+        <Text style={innerStylesCustom.sectionTitleText}>{text}</Text>
+    </View>
+);
+
+const CartoonEra = ({ era, years, color, description, content }) => (
+    // Usa o estilo de card principal com borda dinâmica
+    <View style={[innerStylesCustom.eraContainer, { borderColor: color }]}>
+        
+        {/* Título e Badge de Ano como se fosse o header do Card */}
+        <View style={innerStylesCustom.eraHeaderRow}>
+            <Text style={[innerStylesCustom.eraTitle, { color: color }]}>{era}</Text>
+            <View style={innerStyles.yearBadge}>
+                <Text style={innerStyles.yearText}>{years}</Text>
+            </View>
+        </View>
+        
+        <View style={innerStyles.divider} />
+
+        <Text style={innerStylesCustom.eraDescription}>{description}</Text>
+        
+        {content.map((item, index) => {
+            if (item.type === "detail") {
+                return <CartoonDetail key={index} {...item} />;
+            }
+            if (item.type === "simple") {
+                return <CartoonListItem key={index} items={item.items} />;
+            }
+            if (item.type === "title") {
+                return <EraSectionTitle key={index} text={item.text} />;
+            }
+            return null;
+        })}
+    </View>
+);
+
+// --- 3. COMPONENTE PRINCIPAL (Page) ---
 export default function Page() {
-    const [expandedCard, setExpandedCard] = useState(null);
-
-    const toggleExpand = (id) => {
-        setExpandedCard(expandedCard === id ? null : id);
-    };
-
     return (
         <View style={styles.mainContainer}>
-            {/* Status Bar: Rosa Choque */}
-            <StatusBar barStyle="light-content" backgroundColor="#E30B5C" /> 
-            
-            <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+             <ScrollView contentContainerStyle={styles.scrollContent}>
                 
-                {/* Cabeçalho */}
+                {/* Cabeçalho - Usa os estilos 'styles' */}
                 <View style={styles.headerContainer}>
                     <View style={styles.headerBadge}>
                         <Text style={styles.headerBadgeText}>💖 CN HISTORY 💛</Text>
                     </View>
-                    <Text style={styles.mainTitle}>LINHA DO TEMPO DA CARTOON NETWORK</Text>
-                    <Text style={styles.subHeader}>AS ERAS DA ANIMAÇÃO</Text>
+                    <Text style={styles.mainTitle}>LINHA DO TEMPO DA ANIMAÇÃO</Text>
+                    <Text style={styles.subHeader}>DESENHOS E ERAS</Text>
                 </View>
 
-                {/* Renderização dos Cards de Era */}
-                {CARTOON_NETWORK_ERAS.map((item) => (
-                    <View key={item.id} style={[innerStyles.card, { borderColor: item.color }]}>
-                        
-                        <View style={innerStyles.cardContent}>
-                            
-                            {/* Cabeçalho do Card */}
-                            <View style={innerStyles.cardHeaderRow}>
-                                <View style={innerStyles.titleWrapper}>
-                                    <Text style={[innerStyles.cardTitle, { color: item.color }]}>{item.era}</Text>
-                                </View>
-                                
-                                {/* Badge Amarelo/Rosa para Anos */}
-                                <View style={innerStyles.yearBadge}>
-                                    <Text style={innerStyles.yearText}>{item.years}</Text>
-                                </View>
-                            </View>
-
-                            {/* Divisor em cor de destaque Rosa */}
-                            <View style={innerStyles.divider} />
-
-                            {/* Descrição: Exibe o resumo ou o texto completo */}
-                            <Text style={innerStyles.cardDescription}>
-                                {expandedCard === item.id ? item.fullDescription : item.description}
-                            </Text>
-
-                            {/* Botão "Ler Mais / Ler Menos" */}
-                            <TouchableOpacity 
-                                style={innerStyles.readMoreButton}
-                                onPress={() => toggleExpand(item.id)}
-                            >
-                                <Text style={innerStyles.readMoreText}>
-                                    {expandedCard === item.id ? 'VER MENOS ▲' : 'DETALHES DA ERA ▼'}
-                                </Text>
-                            </TouchableOpacity>
-                            
-                        </View>
-                    </View>
+                {/* Conteúdo Dinâmico */}
+                {CARTOON_NETWORK_ERAS.map((era, index) => (
+                    <CartoonEra key={index} {...era} />
                 ))}
-
+                
+                {/* Footer - Usa o estilo 'innerStyles.footer' */}
                 <View style={innerStyles.footer}>
-                    <Text style={innerStyles.footerText}>✨ ANIMAÇÃO PARA SEMPRE ✨</Text>
+                    <Text style={innerStyles.footerText}>FIM DA ANÁLISE</Text>
                 </View>
-
             </ScrollView>
         </View>
     );
 }
 
-// --- 3. ESTILOS GLOBAIS E LOCAIS (Rosa e Amarelo) ---
+
+// --- 4. ESTILOS FORNECIDOS PELO USUÁRIO (Adaptados e Replicados) ---
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -191,7 +223,7 @@ const styles = StyleSheet.create({
 });
 
 const innerStyles = StyleSheet.create({
-    // Estilos do Card (adaptado do seu modelo)
+    // Estilos do Card base (usado como referência)
     card: {
         backgroundColor: "#FFFFFF",
         borderRadius: 15, 
@@ -206,25 +238,11 @@ const innerStyles = StyleSheet.create({
         overflow: "hidden",
         borderWidth: 5, // Contorno grosso, cor dinâmica (item.color)
     },
-    cardContent: {
-        padding: 20,
-    },
-    cardHeaderRow: {
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        alignItems: "flex-start",
-        marginBottom: 10,
-    },
-    titleWrapper: {
-        flex: 1,
-        marginRight: 10,
-    },
-    cardTitle: {
-        fontSize: 24,
-        fontWeight: FONT_TITLE_WEIGHT, 
-        // A cor é dinâmica, definida pelo item.color (Era Checkerboard é verde, City é marrom, etc.)
-        marginBottom: 5,
-        letterSpacing: 0.5,
+    divider: {
+        height: 4, // Divisor mais grosso
+        backgroundColor: "#F06292", // Rosa Médio
+        marginBottom: 15,
+        marginHorizontal: 15,
     },
     yearBadge: {
         backgroundColor: "#FFEB3B", // Amarelo Destaque
@@ -234,35 +252,15 @@ const innerStyles = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#E30B5C", // Contorno Rosa Choque
         alignSelf: 'flex-start', 
+        shadowColor: "#303030",
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 0,
     },
     yearText: {
         fontSize: 13,
         fontWeight: FONT_TITLE_WEIGHT,
         color: "#E30B5C", // Rosa Choque
-    },
-    divider: {
-        height: 4, // Divisor mais grosso
-        backgroundColor: "#F06292", // Rosa Médio
-        marginBottom: 15,
-    },
-    cardDescription: {
-        fontSize: 16, 
-        lineHeight: 26,
-        color: "#212121", 
-        textAlign: "left", 
-        fontWeight: "500", 
-        marginBottom: 15,
-    },
-    readMoreButton: {
-        alignSelf: 'flex-start',
-        paddingVertical: 8,
-        paddingHorizontal: 0, 
-    },
-    readMoreText: {
-        color: '#C2185B', // Rosa Escuro para ação
-        fontWeight: FONT_TITLE_WEIGHT, // Bem destacado
-        fontSize: 16,
-        letterSpacing: 1,
     },
     footer: {
         alignItems: "center",
@@ -274,5 +272,100 @@ const innerStyles = StyleSheet.create({
         fontSize: 16,
         fontWeight: FONT_TITLE_WEIGHT,
         letterSpacing: 2,
+    }
+    // Outros estilos do innerStyles (titleWrapper, cardTitle, etc.) foram movidos e adaptados abaixo para os componentes aninhados.
+});
+
+// Estilos CUSTOM para os componentes de lista e detalhe (adaptação do innerStyles)
+const innerStylesCustom = StyleSheet.create({
+    eraContainer: {
+        width: "100%",
+        maxWidth: 700,
+        marginVertical: 15,
+        backgroundColor: "#FFFFFF", // Fundo Branco
+        borderRadius: 15,
+        borderWidth: 5, // Contorno grosso
+        shadowColor: "#E30B5C", 
+        shadowOffset: { width: 5, height: 5 },
+        shadowOpacity: 1,
+        shadowRadius: 0, 
+        elevation: 8,
+        overflow: 'hidden',
+        paddingBottom: 5, // Para dar espaço no final
+    },
+    eraHeaderRow: {
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        alignItems: "flex-start",
+        padding: 15,
+        paddingBottom: 10,
+    },
+    eraTitle: {
+        fontWeight: FONT_TITLE_WEIGHT,
+        fontSize: 24,
+        flex: 1,
+        marginRight: 10,
+        // A cor é dinâmica (item.color)
+        letterSpacing: 0.5,
+    },
+    eraDescription: {
+        fontWeight: FONT_SUBTITLE_WEIGHT,
+        fontSize: 16,
+        textAlign: "left",
+        marginBottom: 15,
+        paddingHorizontal: 15,
+        color: "#555",
+        lineHeight: 22,
+    },
+    detailCard: {
+        backgroundColor: "#FFF9C4", // 💡 Amarelo Bem Claro
+        padding: 15,
+        marginHorizontal: 15,
+        marginBottom: 15,
+        borderRadius: 10,
+        borderLeftWidth: 8,
+        borderColor: "#F06292", // 🎀 Rosa Médio na Lateral
+        borderWidth: 2,
+        borderColor: '#FFECB3', 
+    },
+    detailTitle: {
+        fontWeight: FONT_TITLE_WEIGHT,
+        fontSize: 20,
+        color: "#C2185B", // 🌹 Rosa Escuro Vibrante
+        marginBottom: 5,
+    },
+    detailText: {
+        fontSize: 14,
+        lineHeight: 20,
+        color: "#333",
+        marginBottom: 5,
+    },
+    listCard: {
+        backgroundColor: "#FFEBEE", // 🌸 Rosa Bem Claro
+        padding: 15,
+        marginHorizontal: 15,
+        marginBottom: 15,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#FFD700', // Amarelo Dourado de Contorno
+    },
+    listItemText: {
+        fontSize: 16,
+        lineHeight: 24,
+        color: "#303030",
+        fontWeight: FONT_SUBTITLE_WEIGHT,
+    },
+    sectionTitleContainer: {
+        borderBottomWidth: 3,
+        borderBottomColor: '#FF69B4', // Rosa
+        marginHorizontal: 15,
+        marginBottom: 10,
+        paddingBottom: 5,
+        alignItems: 'flex-start',
+    },
+    sectionTitleText: {
+        fontWeight: FONT_TITLE_WEIGHT,
+        fontSize: 18,
+        color: "#C2185B", // Rosa Escuro
     }
 });
