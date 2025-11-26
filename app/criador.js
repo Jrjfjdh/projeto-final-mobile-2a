@@ -2,8 +2,9 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 
 export default function Criador() {
   return (
-    
+    // Removendo o padding extra e simplificando o fundo
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Removendo a rotação e suavizando a sombra do cartão */}
       <View style={styles.card}>
         <Text style={styles.title}>Quem Criou o Cartoon Network?</Text>
 
@@ -14,38 +15,55 @@ export default function Criador() {
           }}
         />
 
+        <Text style={styles.subtitle}>Visão Geral</Text>
         <Text style={styles.text}>
-          O canal foi lançado em <Text style={styles.highlightText}>1º de outubro de 1992</Text> pela empresa{" "}
-          <Text style={styles.highlightText}>Turner Broadcasting System</Text>.
-        </Text>
-        
-        <Text style={styles.text}>
-          O fundador dessa empresa e a mente por trás da ideia é o empresário norte-americano{" "}
-          <Text style={styles.highlightText}>Ted Turner</Text>!
+          O canal foi lançado em{" "}
+          <Text style={styles.highlightText}>1º de outubro de 1992</Text> pela
+          empresa <Text style={styles.highlightText}>Turner Broadcasting System</Text>.
         </Text>
 
-        <Text style={styles.subtitle}> Ted Turner</Text>
-        <Text style={styles.text}>• Nome completo: Robert Edward "Ted" Turner III</Text>
-        <Text style={styles.text}>• Nascimento: <Text style={styles.highlightText}>1938</Text></Text>
-        <Text style={styles.text}>• Empresário e magnata da mídia</Text>
-        <Text style={styles.text}>• Também fundou a <Text style={styles.highlightText}>CNN</Text> (o primeiro canal de notícias 24h do mundo!)</Text>
-
-        <Text style={styles.subtitle}> Como Surgiu a Ideia?</Text>
         <Text style={styles.text}>
-          Turner havia comprado diversos catálogos de animação, incluindo os lendários da{" "}
-          <Text style={styles.highlightText}>Hanna-Barbera</Text>, que continham clássicos como{" "}
-          <Text style={styles.highlightText}>Os Flintstones, Os Jetsons e Scooby-Doo</Text>!
-        </Text>
-        <Text style={styles.text}>
-          Para aproveitar esse enorme acervo, ele criou um canal totalmente dedicado a animações — algo super inovador para a época!
+          O fundador dessa empresa e a mente por trás da ideia é o empresário
+          norte-americano <Text style={styles.highlightText}>Ted Turner</Text>.
         </Text>
 
-        <Text style={styles.subtitle}> Desenvolvimento</Text>
+        <Text style={styles.subtitle}>Ted Turner</Text>
         <Text style={styles.text}>
-          A Hanna-Barbera continuou produzindo conteúdo original de tirar o fôlego para o Cartoon Network.
+          • Nome Completo: Robert Edward "Ted" Turner III
         </Text>
         <Text style={styles.text}>
-          Em 1996, a Turner Broadcasting foi adquirida pela Time Warner, mas Ted Turner ainda é reconhecido como o gênio responsável por tornar o Cartoon Network uma realidade mágica!
+          • Nascimento: <Text style={styles.highlightText}>1938</Text>
+        </Text>
+        <Text style={styles.text}>• Posição: Empresário e Magnata da Mídia</Text>
+        <Text style={styles.text}>
+          • Outra Fundação: Também fundou a <Text style={styles.highlightText}>CNN</Text> (o primeiro canal de notícias 24h do mundo).
+        </Text>
+
+        <Text style={styles.subtitle}>Como Surgiu a Ideia?</Text>
+        <Text style={styles.text}>
+          Turner havia comprado diversos catálogos de animação, incluindo os
+          lendários da <Text style={styles.highlightText}>Hanna-Barbera</Text>.
+        </Text>
+        <Text style={styles.text}>
+          Isso incluía clássicos como{" "}
+          <Text style={styles.highlightText}>Os Flintstones</Text>,{" "}
+          <Text style={styles.highlightText}>Os Jetsons</Text> e{" "}
+          <Text style={styles.highlightText}>Scooby-Doo</Text>.
+        </Text>
+        <Text style={styles.text}>
+          Para aproveitar esse enorme acervo, ele criou um canal totalmente
+          dedicado a animações.
+        </Text>
+
+        <Text style={styles.subtitle}>Desenvolvimento do Canal</Text>
+        <Text style={styles.text}>
+          A Hanna-Barbera continuou produzindo conteúdo original para o Cartoon
+          Network.
+        </Text>
+        <Text style={styles.text}>
+          Em 1996, a Turner Broadcasting foi adquirida pela Time Warner, mas Ted
+          Turner permanece como o responsável por tornar o Cartoon Network uma
+          realidade.
         </Text>
       </View>
     </ScrollView>
@@ -56,66 +74,69 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: "#007BFF", // Azul Forte de Fundo (Mais saturado)
+    backgroundColor: "#F4D03F", // Amarelo Laranja Suave
   },
 
   card: {
-    backgroundColor: "#FFEB3B", // Amarelo Gema/Vivo para o Cartão
-    borderRadius: 30,
+    backgroundColor: "#FFFFFF", // Branco Limpo
+    borderRadius: 15, // Bordas mais suaves
     padding: 25,
-    elevation: 10,
+    elevation: 8,
     shadowColor: "#000",
-    shadowOpacity: 0.5, // Sombra mais intensa
-    shadowOffset: { width: 6, height: 6 }, // Sombra mais deslocada
-    shadowRadius: 12,
-    borderWidth: 5,
-    borderColor: "#4CAF50", // Borda em Verde Vibrante (Ciano/Esmeralda)
+    shadowOpacity: 0.3, // Sombra suave
+    shadowOffset: { width: 0, height: 4 }, // Sombra reta
+    shadowRadius: 8,
+    borderWidth: 4,
+    borderColor: "#4A235A", // Roxo Escuro/Índigo
   },
 
   image: {
     width: "100%",
     height: 150,
     resizeMode: "contain",
-    marginBottom: 25,
-    borderRadius: 15,
+    marginBottom: 20,
+    borderRadius: 10,
     borderWidth: 3,
-    borderColor: "#FF5722", // Borda da imagem em Laranja/Vermelho Intenso
+    borderColor: "#E74C3C", // Vermelho Cinderela
+    // Removendo a rotação
   },
 
   title: {
-    fontSize: 38,
+    fontSize: 34,
     fontWeight: "900",
-    color: "#D32F2F", // Vermelho Escuro/Vivo para o Título
+    color: "#D35400", // Laranja/Marrom Intenso
     textAlign: "center",
-    marginBottom: 15,
-    textShadowColor: "#FFEB3B", // Sombra do Título em Amarelo Gema
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 3,
-    // fontFamily: "Comic Sans MS", // Mantendo sugestão
+    marginBottom: 20,
+    textShadowColor: "#FAD7A0", // Sombra Suave
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
+    fontFamily: "Comic Sans MS", // Fonte Cartoon (se suportada)
   },
 
   subtitle: {
-    fontSize: 28,
-    fontWeight: "800",
-    marginTop: 25,
-    marginBottom: 12,
-    color: "#00BCD4", // Ciano/Turquesa Vibrante para Subtítulos
-    textShadowColor: "#FFFFFF", // Sombra em Branco
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 2,
-    // fontFamily: "Comic Sans MS", // Mantendo sugestão
+    fontSize: 24,
+    fontWeight: "700",
+    marginTop: 20,
+    marginBottom: 10,
+    color: "#1ABC9C", // Verde Água/Menta
+    // Removendo sombras fortes no subtítulo
+    fontFamily: "Comic Sans MS", // Fonte Cartoon (se suportada)
+    borderBottomWidth: 2, // Linha divisória para organização
+    borderBottomColor: "#1ABC9C",
+    paddingBottom: 5,
   },
 
   text: {
-    fontSize: 18,
-    lineHeight: 26,
-    color: "#212121", // Texto Principal em Preto/Cinza Escuro para Alto Contraste
-    marginBottom: 10,
-    // fontFamily: "Arial Rounded MT Bold"
+    fontSize: 17,
+    lineHeight: 25,
+    color: "#2C3E50", // Azul Petróleo Escuro (para boa leitura)
+    marginBottom: 8,
+    fontFamily: "Comic Sans MS", // Fonte Cartoon (se suportada)
   },
   highlightText: {
     fontWeight: "bold",
-    color: "#E91E63", // Pink/Magenta Vivo para Destaques
-    fontSize: 19,
-  }
+    color: "#E74C3C", // Vermelho Cinderela
+    fontSize: 18,
+    fontFamily: "Comic Sans MS", // Fonte Cartoon (se suportada)
+  },
 });
