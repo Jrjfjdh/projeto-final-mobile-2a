@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, ScrollView, StatusBar, TouchableOpacity } from "react-native";
 
-// Linhas de importação de imagens foram removidas.
-// ...
-
 const historyData = [
   {
     id: 1,
     title: "1992–1996: Era Block (Lançamento)",
     years: "1992–1996",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null, 
     description: "Nos primeiros anos, o Cartoon Network vivia de reprises da Hanna-Barbera e dos Looney Tunes. Tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995, um bloco de curtas que revelou nomes gigantes como Craig McCracken e Tartakovsky, formando a primeira geração dos Cartoon Cartoons.",
     fullDescription: "Nos primeiros anos (1992–1996), o Cartoon Network vivia quase totalmente de reprises da Hanna-Barbera e dos Looney Tunes. Essa “Era Block” não tinha produções próprias, mas tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995: um bloco para curtas feitos por novos animadores. Dessa iniciativa nasceram nomes gigantes como Craig McCracken, Tartakovsky e David Feiss, além dos futuros criadores de Family Guy e Padrinhos Mágicos. Esses curtas formariam a primeira geração dos Cartoon Cartoons, que consolidaram o canal mundialmente. Paralelamente surgiram dois marcos: a expansão para a América Latina e a criação do Boomerang, inicialmente um bloco só de clássicos."
@@ -18,7 +14,6 @@ const historyData = [
     id: 2,
     title: "1992–1999: Era Checkerboard (Consolidação)",
     years: "1992–1999",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null,
     description: "O canal engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações. A estética quadriculada virou marca registrada. No final dos anos 90, os animes surgiram como um novo competidor.",
     fullDescription: "Com a Era Checkerboard (1992–1999), o canal finalmente engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações (Billy e Mandy, Samurai Jack, KND). A estética quadriculada e os bumpers criativos viraram marca registrada. Nessa fase também chegaram animações da Warner como Animaniacs, Freakazoid e Pink & Cérebro. Porém, ao final dos anos 90, o canal teria um novo competidor poderoso: os animes."
@@ -27,7 +22,6 @@ const historyData = [
     id: 3,
     title: "1999–2004: Era Powerhouse (O Auge)",
     years: "1999–2004",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null,
     description: "Marcou o auge do canal. Com o bloco Toonami, chegaram animes de sucesso (Dragon Ball, Pokémon, Yu Yu Hakusho). O Adult Swim ganhou mais força, e o canal virou fenômeno cultural, atingindo seu ponto máximo de popularidade.",
     fullDescription: "A Era Powerhouse (1999–2004) marcou o auge. Com o bloco Toonami, chegaram Dragon Ball, Pokémon, Yu Yu Hakusho, Cavaleiros do Zodíaco, entre muitos outros. Os desenhos clássicos migraram para o canal Boomerang. O Adult Swim ganhou mais força, exibindo animações adultas. O canal virou fenômeno cultural, lançou o filme das Meninas Superpoderosas e atingiu seu ponto máximo de popularidade."
@@ -36,7 +30,6 @@ const historyData = [
     id: 4,
     title: "2004–2010: Era City (Primeira Grande Crise)",
     years: "2004–2010",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null,
     description: "Crise marcada pela saída de Ted Turner e mudanças mal recebidas. O logo virou 'CN' e a programação foi tomada por reprises de Naruto e Ben 10. Apesar disso, surgiram boas animações como Mansão Foster, Flapjack e Chowder.",
     fullDescription: "A Era City (2004–2010) marcou a primeira grande crise. Ted Turner saiu, Pablo Zuccarino assumiu, e várias mudanças foram mal recebidas: o clássico logotipo virou “CN”, muitos desenhos antigos desapareceram e a programação ficou tomada por reprises de Naruto, Ben 10 e Bakugan. Adult Swim foi cancelado no Brasil após reclamações de pais. Mesmo assim, surgiram boas animações como Mansão Foster, Flapjack, Chowder e o próprio Ben 10, que virou um fenômeno comercial."
@@ -45,7 +38,6 @@ const historyData = [
     id: 5,
     title: "2010–2012: Era Toonix (Fundo do Poço)",
     years: "2010–2012",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null,
     description: "Considerada o fundo do poço, com mascotes genéricos, cortes de aberturas, censura e séries live-action. No entanto, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir 'Irmão do Jorel'.",
     fullDescription: "A Era Toonix (2010–2012) é considerada o fundo do poço. O canal adotou bumpers com mascotes genéricos, cortou aberturas e encerramentos para colocar mais comerciais, censurou episódios e encheu a grade com séries live-action de baixa qualidade. Muitos desenhos eram cancelados sem aviso e os horários viraram uma bagunça. Ainda assim, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir animações próprias como “Irmão do Jorel”."
@@ -54,7 +46,6 @@ const historyData = [
     id: 6,
     title: "2012–Atual: Era Check It (Recuperação)",
     years: "2012–atual",
-    // USO DA IMAGEM LOCAL (Removido)
     image: null,
     description: "O canal se recuperou com foco em animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso e Over The Garden Wall. Nos últimos anos, enfrenta críticas pelo excesso de comédias nonsense e reboots polêmicos.",
     fullDescription: "Com a Era Check It (2012–atual) o canal finalmente se recuperou. Os bumpers ficaram mais modernos, as censuras diminuíram, e o foco voltou a ser animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso, Over The Garden Wall e outros nacionais como Historietas Assombradas. Porém, nos últimos anos o canal voltou a enfrentar críticas pelo excesso de comédias nonsense e reboots polêmicos, como Teen Titans Go, Be Cool Scooby-Doo, Powerpuff Girls 2016 e Thundercats Roar. Ao longo dessa trajetória, o Cartoon Network oscilou entre eras de ouro e quedas drásticas, mas sempre teve um papel fundamental para a animação mundial, revelando talentos e marcando gerações."
@@ -122,8 +113,6 @@ export default function PageOne() {
   );
 }
 
-
-// Os estilos foram modificados para incluir um placeholder (substituto) para a imagem
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
@@ -247,7 +236,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginBottom: 15,
   },
-  // Estilos do Botão "Ler Mais"
+
   readMoreButton: {
     alignSelf: 'flex-start',
     paddingVertical: 8,

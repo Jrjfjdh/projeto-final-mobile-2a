@@ -1,13 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
-
-// 🔹 IMPORTAÇÕES DAS IMAGENS — ✅ CAMINHO RELATIVO CORRIGIDO (../assets/)
 import imgDexter from "../assets/dexter.png";
+import imgAsPowerpuffGirls from "../assets/As Powerpuff Girls.png";
+import imgjohnnybravo from "../assets/johnny bravo.png";
+import imgEdEddnEddy from "../assets/EdEddnEddy.png";
+import imgben10 from "../assets/ben10.jpg";
+import imgFostersHomeforImaginaryFriends from "../assets/FostersHomeforImaginaryFriends.jpg";
+import imgthegrimadventuresofbillymandy from "../assets/thegrimadventuresofbilly&mandy.png";
 
 const FONT_TITLE_WEIGHT = '900';
 const FONT_SUBTITLE_WEIGHT = '700';
 
-// --- 1. ESTRUTURA DE DADOS (imageSource = variável importada) ---
 const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA BLOCK / PRÉ-CHECKERBOARD",
@@ -33,7 +36,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "O Laboratório de Dexter (1996)",
                 creator: "Genndy Tartakovsky",
-                sinopse: "Dexter, um menino gênio, tenta constantemente criar novas invenções, enquanto lida com sua irmã Dee Dee.",
+                sinopse: "é uma série de animação sobre um menino gênio, Dexter, que constrói um laboratório secreto atrás de uma estante em seu quarto para realizar experimentos científicos. A série acompanha as aventuras e problemas que surgem quando sua irmã mais velha, Dee Dee, descobre o local e atrapalha seus inventos, além dos confrontos com seu arqui-inimigo, Mandark. ",
                 imageSource: imgDexter,
                 curiosities: [
                     "Foi um dos primeiros 'Cartoon Cartoons' completos, nascido do bloco 'What a Cartoon!'.",
@@ -46,6 +49,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "As Meninas Superpoderosas (1998)",
                 creator: "Craig McCracken",
                 sinopse: "Três meninas super-heroínas usam seus superpoderes para salvar a cidade de Townsville.",
+                imageSource: imgAsPowerpuffGirls,
                 curiosities: [
                     "O curta original de 1992 chamava-se 'Whoopass Stew', mas foi mudado por censura.",
                     "O desenho é conhecido pelo seu estilo visual único, misturando referências de arte pop.",
@@ -57,6 +61,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Johnny Bravo (1997)",
                 creator: "Van Partible",
                 sinopse: "Um fortão musculoso, auto-proclamado 'sedutor', mas ingênuo, tenta (e falha miseravelmente) em conseguir encontros.",
+                imageSource: imgjohnnybravo,
                 curiosities: [
                     "Johnny Bravo foi inspirado em Elvis Presley e James Dean.",
                     "O desenho foi cancelado e depois revivido para uma terceira e quarta temporada.",
@@ -68,6 +73,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Du, Dudu e Edu (Ed, Edd n’ Eddy) (1999)",
                 creator: "Danny Antonucci",
                 sinopse: "Três amigos com o mesmo nome fazem planos mirabolantes para conseguir dinheiro e comprar seu doce favorito: 'sazone' (jujubas grandes).",
+                imageSource: imgEdEddnEddy,
                 curiosities: [
                     "É famoso pela sua animação 'nervosa' ou 'oscilante', que foi intencional.",
                     "Foi o último 'Cartoon Cartoon' original.",
@@ -88,6 +94,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Ben 10 (2005)",
                 creator: "Man of Action",
                 sinopse: "O jovem Ben Tennyson encontra o Omnitrix, que lhe permite se transformar em dez heróis alienígenas diferentes para combater o mal.",
+                imageSource: imgben10,
                 curiosities: [
                     "A equipe 'Man of Action' é um coletivo de quatro criadores de quadrinhos.",
                     "Ben 10 foi um sucesso comercial tão grande que gerou quatro séries originais e três reboots.",
@@ -99,6 +106,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "A Mansão Foster para Amigos Imaginários (2004)",
                 creator: "Craig McCracken",
                 sinopse: "Mac visita diariamente a Mansão Foster, um lar para amigos imaginários abandonados, para passar tempo com seu amigo Bloo.",
+                imageSource: imgFostersHomeforImaginaryFriends,
                 curiosities: [
                     "Foi a primeira série de McCracken após 'As Meninas Superpoderosas'.",
                     "A Mansão é inspirada na arquitetura vitoriana e no art nouveau.",
@@ -110,6 +118,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "As Terríveis Aventuras de Billy e Mandy (2001 – seguiu forte até 2007)",
                 creator: "Maxwell Atoms",
                 sinopse: "Duas crianças, o ingênuo Billy e a cínica Mandy, forçam o Ceifador (Grim) a ser seu melhor amigo.",
+                imageSource: imgthegrimadventuresofbillymandy,
                 curiosities: [
                     "O desenho começou como um segmento do 'Grim & Evil'.",
                     "Maxwell Atoms buscou inspiração em desenhos macabros de sua infância.",
@@ -237,13 +246,12 @@ const CARTOON_NETWORK_ERAS = [
     },
 ];
 
-// --- 2. COMPONENTES ---
 const CartoonDetail = ({ title, sinopse, creator, curiosities, imageSource }) => (
     <View style={innerStylesCustom.detailCard}>
         {imageSource && (
             <View style={innerStylesCustom.imageContainer}>
                 <Image
-                    source={imageSource} // ✅ Agora aceita módulo estático (ex: imgDexter)
+                    source={imageSource} 
                     style={innerStylesCustom.cartoonImage}
                     resizeMode="contain"
                 />
@@ -300,14 +308,13 @@ const CartoonEra = ({ era, years, color, description, content }) => (
     </View>
 );
 
-// --- 3. COMPONENTE PRINCIPAL ---
 export default function Page() {
     return (
         <View style={styles.mainContainer}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <View style={styles.headerContainer}>
                     <View style={styles.headerBadge}>
-                        <Text style={styles.headerBadgeText}>💖 CN HISTORY 💛</Text>
+                        <Text style={styles.headerBadgeText}>CN HISTORY</Text>
                     </View>
                     <Text style={styles.mainTitle}>LINHA DO TEMPO DA ANIMAÇÃO</Text>
                     <Text style={styles.subHeader}>DESENHOS E ERAS</Text>
@@ -325,7 +332,6 @@ export default function Page() {
     );
 }
 
-// --- 4. ESTILOS ---
 const styles = StyleSheet.create({
     mainContainer: { flex: 1, backgroundColor: "#FFD700" },
     scrollContent: { padding: 20, paddingBottom: 60, alignItems: "center" },
@@ -441,7 +447,6 @@ const innerStylesCustom = StyleSheet.create({
         alignItems: 'flex-start',
     },
     sectionTitleText: { fontWeight: FONT_TITLE_WEIGHT, fontSize: 18, color: "#C2185B" },
-    // ✅ Estilos da imagem (LOCAIS)
     imageContainer: { alignItems: 'center', marginBottom: 12 },
     cartoonImage: { width: 160, height: 160, borderRadius: 8, borderWidth: 1, borderColor: '#FFD700' },
 });
