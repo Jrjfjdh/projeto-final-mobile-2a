@@ -29,7 +29,7 @@ const CARTOON_NETWORK_ERAS = [
         era: "ERA CHECKERBOARD",
         years: "1996–2004",
         color: "#1B9C46",
-        description: "Nascimento dos Cartoon Cartoons; explosão de originais como Dexter, Meninas Superpoderosas, Johnny Bravo e Coragem.",
+        description: "Nascimento dos Cartoon Cartoons; explosão de originais como Dexter, Meninas Superpoderosas, Johnny Bravo e Corage.",
         content: [
             { type: "title", text: "Desenhos Originais Principais" },
             {
