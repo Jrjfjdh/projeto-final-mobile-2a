@@ -8,59 +8,76 @@ const DADOS_DOS_VIDEOS = [
     {
         id: 'dexter',
         title: 'O Laboratório de Dexter (1996)',
+        file: require('../assets/videos/dexter.mp4'),
+
     },
     {
         id: 'powerpuff',
         title: 'As Meninas Superpoderosas (1998)',
+        file: require('../assets/videos/powerpuff.mp4'),
+
     },
     {
         id: 'johnnybravo',
         title: 'Johnny Bravo (1997)',
+        file: require('../assets/videos/johnnybravo.mp4'),
     },
     {
         id: 'ededdeddy',
         title: 'Du, Dudu e Edu (1999)',
+        file: require('../assets/videos/ededdeddy.mp4'),
     },
     {
         id: 'ben10',
         title: 'Ben 10 (2005)',
+        file: require('../assets/videos/ben10.mp4'),
     },
     {
         id: 'fosters',
         title: 'A Mansão Foster para Amigos Imaginários (2004)',
+        file: require('../assets/videos/fosters.mp4'),
     },
     {
         id: 'billymandy',
         title: 'As Terríveis Aventuras de Billy e Mandy (2001)',
+        file: require('../assets/videos/billymandy.mp4'),
     },
     {
         id: 'chowder',
         title: 'Chowder (2007)',
+        file: require('../assets/videos/chowder.mp4'),
     },
     {
         id: 'adventuretime',
         title: 'Hora de Aventura (2010)',
+        file: require('../assets/videos/adventuretime.mp4'),
     },
     {
         id: 'gumball',
         title: 'O Incrível Mundo de Gumball (2011)',
-        file: require('../assets/gumball.mp4'),
+        file: require('../assets/videos/gumball.mp4'),
     },
     {
         id: 'stevenuniverse',
         title: 'Steven Universe (2013)',
+        file: require('../assets/videos/stevenuniverse.mp4'),
+
+        
     },
     {
         id: 'regularshow',
         title: 'Apenas um Show (2010)',
+        file: require('../assets/videos/regularshow.mp4'),
     },
      {
         id: 'omundodegreg',
         title: 'O Mundo de Greg (Craig of the Creek)',
+
     },
      {
         id: 'teentitansgo',
         title: 'Os Jovens Titãs em Ação!',
+        
     },
      {
         id: 'victorevalentino',

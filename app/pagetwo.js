@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, Image, Platform } from "react-native";
+// Importei explicitamente o 'StatusBar' aqui.
+import { StyleSheet, Text, View, ScrollView, Image, Platform, StatusBar } from "react-native";
 // IMPORTAÇÕES DE IMAGENS (verifique se os caminhos estão corretos)
 import imgDexter from "../assets/dexter.png";
 import imgAsPowerpuffGirls from "../assets/As Powerpuff Girls.png";
@@ -8,6 +9,11 @@ import imgEdEddnEddy from "../assets/EdEddnEddy.png";
 import imgben10 from "../assets/ben10.jpg";
 import imgFostersHomeforImaginaryFriends from "../assets/FostersHomeforImaginaryFriends.jpg";
 import imgthegrimadventuresofbillymandy from "../assets/thegrimadventuresofbilly&mandy.png";
+import imgChowder from "../assets/chowder1.jpg";
+import imgAdventureTime from "../assets/adventuretime.jpg";
+import imgGumball from "../assets/gumball.jpg";
+import imgStevenUniverse from "../assets/stevenuniverse.jpg";
+import imgRegularShow from "../assets/regularshow.jpg";
 
 const FONT_TITLE_WEIGHT = '900';
 const FONT_SUBTITLE_WEIGHT = '700';
@@ -132,6 +138,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Chowder (2007)",
                 creator: "C. H. Greenblatt",
                 sinopse: "As aventuras de Chowder, um jovem aprendiz de chef fofo, mas desastrado, que trabalha na empresa de catering Mung Daal.",
+                imageSource: imgChowder,
                 curiosities: [
                     "C. H. Greenblatt trabalhou anteriormente em *Bob Esponja Calça Quadrada* e *Billy e Mandy*.",
                     "O desenho é famoso por quebrar a 'quarta parede' constantemente.",
@@ -152,6 +159,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Hora de Aventura (2010)",
                 creator: "Pendleton Ward",
                 sinopse: "Finn, o humano, e Jake, o cão, exploram a terra pós-apocalíptica e mágica de Ooo.",
+                imageSource: imgAdventureTime,
                 curiosities: [
                     "A série que definiu a nova era do CN.",
                     "Foi inicialmente rejeitada pela Nickelodeon.",
@@ -163,6 +171,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "O Incrível Mundo de Gumball (2011)",
                 creator: "Ben Bocquelet",
                 sinopse: "Acompanha Gumball Watterson (gato azul) e seu irmão adotivo Darwin (peixe dourado) em suas vidas caóticas em Elmore.",
+                imageSource: imgGumball,
                 curiosities: [
                     "É uma produção britânico-americana.",
                     "É notável por usar múltiplos estilos de animação (2D, 3D, fantoche, etc.) em um único episódio.",
@@ -174,6 +183,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Steven Universe (2013)",
                 creator: "Rebecca Sugar",
                 sinopse: "Steven Universe, um garoto meio-humano/meio-Gem, vive com as Crystal Gems, aprendendo a usar seus poderes.",
+                imageSource: imgStevenUniverse,
                 curiosities: [
                     "Primeira série animada do CN criada exclusivamente por uma mulher.",
                     "É celebrada por sua representação positiva de relacionamentos LGBTQ+ e temas de empatia.",
@@ -185,6 +195,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Regular Show / Apenas um Show (2010)",
                 creator: "J. G. Quintel",
                 sinopse: "Mordecai (gaio-azul) e Rigby (guaxinim) transformam tarefas mundanas de zeladoria em aventuras surreais e perigosas.",
+                imageSource: imgRegularShow,
                 curiosities: [
                     "O desenho começou como um curta-metragem de estudante de Quintel na CalArts.",
                     "A série se inspira fortemente na cultura pop dos anos 80 e 90.",
@@ -313,7 +324,7 @@ const CartoonEra = ({ era, years, color, description, content }) => (
 );
 
 export default function Page() {
-    // Estilos condionais para o contêiner principal
+    // Estilos condicionais para o contêiner principal
     const containerStyle = [
         styles.mainContainer,
         Platform.OS === 'web' && styles.webContainerWrapper,
@@ -321,8 +332,8 @@ export default function Page() {
 
     return (
         <View style={containerStyle}>
-            {/* Oculta a StatusBar na Web */}
-            {Platform.OS !== 'web' && <StatusBar barStyle="dark-content" backgroundColor="#FFD700" />}
+            {/* CORREÇÃO: Usando 'hidden={true}' para remover a Status Bar em dispositivos nativos */}
+            {Platform.OS !== 'web' && <StatusBar hidden={true} />}
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <View style={[styles.headerContainer, Platform.OS === 'web' && styles.headerContainerWeb]}>
