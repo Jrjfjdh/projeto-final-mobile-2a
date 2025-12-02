@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  Image, 
-  ScrollView, 
-  StatusBar, 
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  StatusBar,
   TouchableOpacity,
-  Platform // ESSENCIAL para diferenciar Web/Mobile
+  Platform
 } from "react-native";
 
-// Dados de História (inalterados)
+// Certifique-se de que o caminho para a imagem está correto em seu projeto
+import imgDexter from "../assets/dexter.png"; 
+
+// =================================================================
+// DADOS DA LINHA DO TEMPO (PERMANECEM IGUAIS)
+// =================================================================
 const historyData = [
   {
     id: 1,
     title: "1992–1996: Era Block (Lançamento)",
     years: "1992–1996",
-    image: null, 
     description: "Nos primeiros anos, o Cartoon Network vivia de reprises da Hanna-Barbera e dos Looney Tunes. Tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995, um bloco de curtas que revelou nomes gigantes como Craig McCracken e Tartakovsky, formando a primeira geração dos Cartoon Cartoons.",
     fullDescription: "Nos primeiros anos (1992–1996), o Cartoon Network vivia quase totalmente de reprises da Hanna-Barbera e dos Looney Tunes. Essa “Era Block” não tinha produções próprias, mas tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995: um bloco para curtas feitos por novos animadores. Dessa iniciativa nasceram nomes gigantes como Craig McCracken, Tartakovsky e David Feiss, além dos futuros criadores de Family Guy e Padrinhos Mágicos. Esses curtas formariam a primeira geração dos Cartoon Cartoons, que consolidaram o canal mundialmente. Paralelamente surgiram dois marcos: a expansão para a América Latina e a criação do Boomerang, inicialmente um bloco só de clássicos."
   },
@@ -24,7 +28,7 @@ const historyData = [
     id: 2,
     title: "1992–1999: Era Checkerboard (Consolidação)",
     years: "1992–1999",
-    image: null,
+    imageSource: imgDexter, // Imagem aplicada aqui
     description: "O canal engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações. A estética quadriculada virou marca registrada. No final dos anos 90, os animes surgiram como um novo competidor.",
     fullDescription: "Com a Era Checkerboard (1992–1999), o canal finalmente engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações (Billy e Mandy, Samurai Jack, KND). A estética quadriculada e os bumpers criativos viraram marca registrada. Nessa fase também chegaram animações da Warner como Animaniacs, Freakazoid e Pink & Cérebro. Porém, ao final dos anos 90, o canal teria um novo competidor poderoso: os animes."
   },
@@ -32,7 +36,6 @@ const historyData = [
     id: 3,
     title: "1999–2004: Era Powerhouse (O Auge)",
     years: "1999–2004",
-    image: null,
     description: "Marcou o auge do canal. Com o bloco Toonami, chegaram animes de sucesso (Dragon Ball, Pokémon, Yu Yu Hakusho). O Adult Swim ganhou mais força, e o canal virou fenômeno cultural, atingindo seu ponto máximo de popularidade.",
     fullDescription: "A Era Powerhouse (1999–2004) marcou o auge. Com o bloco Toonami, chegaram Dragon Ball, Pokémon, Yu Yu Hakusho, Cavaleiros do Zodíaco, entre muitos outros. Os desenhos clássicos migraram para o canal Boomerang. O Adult Swim ganhou mais força, exibindo animações adultas. O canal virou fenômeno cultural, lançou o filme das Meninas Superpoderosas e atingiu seu ponto máximo de popularidade."
   },
@@ -40,7 +43,6 @@ const historyData = [
     id: 4,
     title: "2004–2010: Era City (Primeira Grande Crise)",
     years: "2004–2010",
-    image: null,
     description: "Crise marcada pela saída de Ted Turner e mudanças mal recebidas. O logo virou 'CN' e a programação foi tomada por reprises de Naruto e Ben 10. Apesar disso, surgiram boas animações como Mansão Foster, Flapjack e Chowder.",
     fullDescription: "A Era City (2004–2010) marcou a primeira grande crise. Ted Turner saiu, Pablo Zuccarino assumiu, e várias mudanças foram mal recebidas: o clássico logotipo virou “CN”, muitos desenhos antigos desapareceram e a programação ficou tomada por reprises de Naruto, Ben 10 e Bakugan. Adult Swim foi cancelado no Brasil após reclamações de pais. Mesmo assim, surgiram boas animações como Mansão Foster, Flapjack, Chowder e o próprio Ben 10, que virou um fenômeno comercial."
   },
@@ -48,7 +50,6 @@ const historyData = [
     id: 5,
     title: "2010–2012: Era Toonix (Fundo do Poço)",
     years: "2010–2012",
-    image: null,
     description: "Considerada o fundo do poço, com mascotes genéricos, cortes de aberturas, censura e séries live-action. No entanto, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir 'Irmão do Jorel'.",
     fullDescription: "A Era Toonix (2010–2012) é considerada o fundo do poço. O canal adotou bumpers com mascotes genéricos, cortou aberturas e encerramentos para colocar mais comerciais, censurou episódios e encheu a grade com séries live-action de baixa qualidade. Muitos desenhos eram cancelados sem aviso e os horários viraram uma bagunça. Ainda assim, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir animações próprias como “Irmão do Jorel”."
   },
@@ -56,13 +57,23 @@ const historyData = [
     id: 6,
     title: "2012–Atual: Era Check It (Recuperação)",
     years: "2012–atual",
-    image: null,
     description: "O canal se recuperou com foco em animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso e Over The Garden Wall. Nos últimos anos, enfrenta críticas pelo excesso de comédias nonsense e reboots polêmicos.",
     fullDescription: "Com a Era Check It (2012–atual) o canal finalmente se recuperou. Os bumpers ficaram mais modernos, as censuras diminuíram, e o foco voltou a ser animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso, Over The Garden Wall e outros nacionais como Historietas Assombradas. Porém, nos últimos anos o canal voltou a enfrentar críticas pelo excesso de comédias nonsense e reboots polêmicos, como Teen Titans Go, Be Cool Scooby-Doo, Powerpuff Girls 2016 e Thundercats Roar. Ao longo dessa trajetória, o Cartoon Network oscilou entre eras de ouro e quedas drásticas, mas sempre teve um papel fundamental para a animação mundial, revelando talentos e marcando gerações."
   },
 ];
 
+// =================================================================
+// COMPONENTE WRAPPER PARA BACKGROUND EXPANDIDO (WEB)
+// =================================================================
+const WebBackground = ({ children }) => (
+  <View style={styles.webContainerWrapper}>
+    {children}
+  </View>
+);
 
+// =================================================================
+// COMPONENTE PRINCIPAL
+// =================================================================
 export default function PageOne() {
   const [expandedCard, setExpandedCard] = useState(null);
 
@@ -70,21 +81,16 @@ export default function PageOne() {
     setExpandedCard(expandedCard === id ? null : id);
   };
 
-  const containerStyle = [
-    styles.mainContainer,
-    // Aplica o wrapper de centralização APENAS se for Web
-    Platform.OS === 'web' && styles.webContainerWrapper,
-  ];
-
-  return (
-    <View style={containerStyle}>
+  // Conteúdo principal do APP (o que será centralizado na Web)
+  const PageContent = (
+    <View style={styles.mainContainer}>
       {/* Oculta a StatusBar na Web */}
-      {Platform.OS !== 'web' && 
+      {Platform.OS !== 'web' &&
         <StatusBar barStyle="light-content" backgroundColor="#FF5722" />
       }
-      
+
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        
+
         <View style={styles.headerContainer}>
           <View style={styles.headerBadge}>
             <Text style={styles.headerBadgeText}>A HISTÓRIA DO CARTOON NETWORK</Text>
@@ -95,9 +101,18 @@ export default function PageOne() {
 
         {historyData.map((item) => (
           <View key={item.id} style={styles.card}>
-            
-            <View style={styles.placeholderImage} />
-            
+
+            {/* Renderiza a imagem se 'imageSource' ou 'image' existirem */}
+            {(item.image || item.imageSource) && (
+              <Image
+                source={item.imageSource || item.image} 
+                style={styles.cardImage}
+                resizeMode="cover"
+              />
+            )}
+            {/* Bloco de fallback (placeholder) */}
+            {(!item.image && !item.imageSource) && <View style={styles.placeholderImage} />}
+
             <View style={styles.cardContent}>
               <View style={styles.cardHeaderRow}>
                 <View style={styles.titleWrapper}>
@@ -128,41 +143,50 @@ export default function PageOne() {
       </ScrollView>
     </View>
   );
+
+  // Retorna o conteúdo dentro do WebBackground APENAS se for Web
+  if (Platform.OS === 'web') {
+    return <WebBackground>{PageContent}</WebBackground>;
+  }
+
+  // Retorna o conteúdo diretamente para Mobile/App
+  return PageContent;
 }
 
+// =================================================================
+// ESTILOS
+// =================================================================
 const styles = StyleSheet.create({
   // -------------------------------------------------------------------
-  // ESTILOS DE CENTRALIZAÇÃO E CONTENÇÃO (APLICADOS NA WEB)
+  // ESTILOS DE CENTRALIZAÇÃO E BACKGROUND EXPANDIDO (WEB)
   // -------------------------------------------------------------------
   webContainerWrapper: {
-    // Garante que o container ocupe toda a altura da viewport
-    height: '100vh', 
-    backgroundColor: '#FFD700', // Cor de fundo fora da área do app
-    
-    // Centraliza o conteúdo horizontal e verticalmente
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    
-    overflow: 'auto', // Permite scroll se o conteúdo for maior que a tela
+    // Garante que o container ocupe toda a largura e altura da viewport
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: '#FFD700', // Cor de fundo expandida (AMARELO CLARO)
+
+    // Centraliza o conteúdo (mainContainer)
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    overflow: 'auto', 
+    paddingVertical: 20, 
   },
-  
+
   mainContainer: {
-    flex: 1, 
-    backgroundColor: "#FBC02D",
+    backgroundColor: "#FBC02D", // Cor de fundo do app (AMARELO ESCURO/MOSTARDA)
+
+    // *** ALTERADO: Largura máxima aumentada para 800px na Web ***
+    maxWidth: Platform.OS === 'web' ? 800 : null,
     
-    // Limita a largura máxima para simular um celular/tablet na Web
-    maxWidth: Platform.OS === 'web' ? 600 : null, 
+    // Altura na web
+    height: Platform.OS === 'web' ? '100%' : 'auto', 
     
-    // Adiciona margem automática para centralização horizontal final na web
-    marginHorizontal: Platform.OS === 'web' ? 'auto' : 0,
-    
-    // Adiciona margem vertical para que não fique colado nas bordas do browser (na web)
-    marginVertical: Platform.OS === 'web' ? 20 : 0, 
-    
-    // Adiciona um padding vertical interno para dar um respiro no topo/rodapé do conteúdo
-    paddingVertical: Platform.OS === 'web' ? 20 : 0, 
+    // Configurações de layout Mobile
+    flex: Platform.OS !== 'web' ? 1 : null,
   },
-  
+
   // -------------------------------------------------------------------
   // RESTANTE DOS ESTILOS
   // -------------------------------------------------------------------
@@ -209,33 +233,37 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
   },
-  
+
   // Estilos do Card com correção de sombra (elevation) para a Web
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 16,
     marginBottom: 20,
-    
+
     // Estilos padrão de sombra (iOS/Android)
     shadowColor: "#D32F2F",
     shadowOpacity: 0.3,
     shadowOffset: { width: 4, height: 6 },
     shadowRadius: 10,
-    elevation: 8, 
-    
-    // Sombra CSS nativa forçada na Web
+    elevation: 8,
+
+    // Estilos de sombra para Web
     ...(Platform.OS === 'web' && {
-        boxShadow: '4px 6px 10px rgba(211, 47, 47, 0.3)',
+      boxShadow: '4px 6px 10px rgba(211, 47, 47, 0.3)',
     }),
-    
+
     overflow: "hidden",
     borderWidth: 4,
     borderColor: "#303F9F",
   },
+  cardImage: {
+    width: "100%",
+    height: 160,
+  },
   placeholderImage: {
     width: "100%",
     height: 160,
-    backgroundColor: '#CCCCCC', 
+    backgroundColor: '#CCCCCC',
   },
   cardContent: {
     padding: 20,

@@ -1,7 +1,7 @@
 import React from "react";
-// Importei explicitamente o 'StatusBar' aqui.
 import { StyleSheet, Text, View, ScrollView, Image, Platform, StatusBar } from "react-native";
-// IMPORTAÇÕES DE IMAGENS (verifique se os caminhos estão corretos)
+
+// Importações de Imagens (verifique se os caminhos estão corretos)
 import imgDexter from "../assets/dexter.png";
 import imgAsPowerpuffGirls from "../assets/As Powerpuff Girls.png";
 import imgjohnnybravo from "../assets/johnny bravo.png";
@@ -12,18 +12,22 @@ import imgthegrimadventuresofbillymandy from "../assets/thegrimadventuresofbilly
 import imgChowder from "../assets/chowder1.jpg";
 import imgAdventureTime from "../assets/adventuretime.jpg";
 import imgGumball from "../assets/gumball.jpg";
-import imgStevenUniverse from "../assets/stevenuniverse.jpg";
+import imgStevenUniverse from "../assets/steveuniverse.jpg";
 import imgRegularShow from "../assets/regularshow.jpg";
+import imgGreg from "../assets/greg.webp";
+import imgteentitans from "../assets/TeenTitans.webp";
+import imgvictor from "../assets/victor.jpg";
+import imgbear from "../assets/bear.jpg";
+
 
 const FONT_TITLE_WEIGHT = '900';
 const FONT_SUBTITLE_WEIGHT = '700';
 
-// DADOS (inalterados)
 const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA BLOCK / PRÉ-CHECKERBOARD",
         years: "1992–1996",
-        color: "#9C27B0",
+        color: "#9C27B0", // Roxo
         description: "Início do canal; vivia de reprises; não tinha muitos originais ainda.",
         content: [
             { type: "title", text: "Desenhos Clássicos em Reprise" },
@@ -36,7 +40,7 @@ const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA CHECKERBOARD",
         years: "1996–2004",
-        color: "#1B9C46",
+        color: "#1B9C46", // Verde
         description: "Nascimento dos Cartoon Cartoons; explosão de originais como Dexter, Meninas Superpoderosas, Johnny Bravo e Corage.",
         content: [
             { type: "title", text: "Desenhos Originais Principais" },
@@ -93,7 +97,7 @@ const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA CITY / PRIMEIRA GRANDE CRISE",
         years: "2004–2010",
-        color: "#00BCD4",
+        color: "#00BCD4", // Ciano
         description: "Período de transição com desenhos mais variados e experimentais, marcados pela perda de identidade visual.",
         content: [
             { type: "title", text: "Renovação e Animações Modernas" },
@@ -150,7 +154,7 @@ const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA TOONIX / NOVA ONDA CN",
         years: "2010–2018",
-        color: "#FF8C00",
+        color: "#FF8C00", // Laranja
         description: "Uma das eras mais influentes, marcada por criatividade, grandes fandoms e o renascimento do CN com grandes sucessos globais.",
         content: [
             { type: "title", text: "Grandes Sucessos da Era Moderna" },
@@ -207,7 +211,7 @@ const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA CHECK IT / FASE ATUAL",
         years: "2019–presente",
-        color: "#C2185B",
+        color: "#C2185B", // Rosa escuro
         description: "Com foco em *reboots*, séries digitais e híbridos de comédia. Mantém a identidade visual modernizada do canal.",
         content: [
             { type: "title", text: "Fase Recente / Atual" },
@@ -216,6 +220,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "O Mundo de Greg (Craig of the Creek) (2018–presente)",
                 creator: "Matt Burnett e Ben Levin",
                 sinopse: "Craig Williams explora as aventuras selvagens de um riacho em sua cidade, um lugar utópico e cheio de crianças, com seus melhores amigos.",
+                imageSource: imgGreg,
                 curiosities: [
                     "Os criadores foram roteiristas e editores de *storyboard* em *Steven Universe*.",
                     "A série é elogiada por sua diversidade de personagens e temas de comunidade.",
@@ -227,6 +232,8 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Os Jovens Titãs em Ação! (Teen Titans Go!) (2013–forte até hoje)",
                 creator: "Michael Jelenic e Aaron Horvath",
                 sinopse: "Versão cômica e estilizada das vidas de Robin, Estelar, Ravena, Mutano e Ciborgue, focada em comédia e pizza.",
+                imageSource: imgteentitans,
+                
                 curiosities: [
                     "É um *spin-off* da série *Teen Titans* (2003-2006).",
                     "É um dos desenhos mais polarizadores do Cartoon Network (amado por crianças, criticado por fãs antigos).",
@@ -238,6 +245,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "Victor e Valentino (2019)",
                 creator: "Diego Molano",
                 sinopse: "Dois meio-irmãos muito diferentes exploram Monte Macabro, uma pequena e misteriosa cidade onde mitos e lendas mesoamericanas ganham vida.",
+                imageSource: imgvictor,
                 curiosities: [
                     "O criador, Diego Molano, inspirou-se em seu próprio tempo visitando o México com sua avó.",
                     "A série se destaca por usar folclore asteca, maia e olmeca.",
@@ -249,6 +257,7 @@ const CARTOON_NETWORK_ERAS = [
                 title: "We Baby Bears (2022)",
                 creator: "Manny Hernandez",
                 sinopse: "Um *spin-off* de *Urso Sem Curso*, focado nas aventuras de Pardo, Panda e Polar enquanto bebês, viajando pelo mundo em uma caixa mágica.",
+                imageSource: imgbear,
                 curiosities: [
                     "O estilo de animação é mais vibrante e estilizado do que a série original, *Urso Sem Curso*.",
                     "Cada episódio da série se passa em um local diferente, dando ao programa uma estrutura de 'road trip' mágica.",
@@ -259,6 +268,9 @@ const CARTOON_NETWORK_ERAS = [
     },
 ];
 
+// =================================================================
+// COMPONENTES DE ESTRUTURA
+// =================================================================
 const CartoonDetail = ({ title, sinopse, creator, curiosities, imageSource }) => (
     <View style={innerStylesCustom.detailCard}>
         {imageSource && (
@@ -298,7 +310,8 @@ const EraSectionTitle = ({ text }) => (
 
 const CartoonEra = ({ era, years, color, description, content }) => (
     <View style={[innerStylesCustom.eraContainer, { borderColor: color }, 
-        Platform.OS === 'web' && { boxShadow: `5px 5px 0px ${color}` } // Sombra na Web
+        // Sombra na Web que usa a cor dinâmica da Era
+        Platform.OS === 'web' && { boxShadow: `5px 5px 0px ${color}` } 
     ]}>
         <View style={innerStylesCustom.eraHeaderRow}>
             <Text style={[innerStylesCustom.eraTitle, { color: color }]}>{era}</Text>
@@ -323,22 +336,28 @@ const CartoonEra = ({ era, years, color, description, content }) => (
     </View>
 );
 
-export default function Page() {
-    // Estilos condicionais para o contêiner principal
-    const containerStyle = [
-        styles.mainContainer,
-        Platform.OS === 'web' && styles.webContainerWrapper,
-    ];
+// Novo componente wrapper para aplicar o fundo expandido na Web
+const WebBackground = ({ children }) => (
+    <View style={styles.webContainerWrapper}>
+      {children}
+    </View>
+);
 
-    return (
-        <View style={containerStyle}>
-            {/* CORREÇÃO: Usando 'hidden={true}' para remover a Status Bar em dispositivos nativos */}
+// =================================================================
+// COMPONENTE PRINCIPAL
+// =================================================================
+export default function Page() {
+    
+    const PageContent = (
+        <View style={styles.mainContainer}>
+            {/* Oculta a Status Bar na Web e em dispositivos nativos */}
             {Platform.OS !== 'web' && <StatusBar hidden={true} />}
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <View style={[styles.headerContainer, Platform.OS === 'web' && styles.headerContainerWeb]}>
                     <View style={[styles.headerBadge, 
-                        Platform.OS === 'web' && { boxShadow: '3px 3px 0px #303030' } // Sombra do Badge na Web
+                        // Sombra do Badge na Web
+                        Platform.OS === 'web' && { boxShadow: '3px 3px 0px #303030' } 
                     ]}>
                         <Text style={styles.headerBadgeText}>CN HISTORY</Text>
                     </View>
@@ -356,49 +375,64 @@ export default function Page() {
             </ScrollView>
         </View>
     );
+
+    // Retorna o conteúdo dentro do WebBackground APENAS se for Web
+    if (Platform.OS === 'web') {
+      return <WebBackground>{PageContent}</WebBackground>;
+    }
+
+    // Retorna o conteúdo diretamente para Mobile/App
+    return PageContent;
 }
 
+// =================================================================
+// ESTILOS GLOBAIS E DE LAYOUT
+// =================================================================
 const styles = StyleSheet.create({
     // -------------------------------------------------------------------
-    // ESTILOS DE CENTRALIZAÇÃO E CONTENÇÃO (APLICADOS NA WEB)
+    // ESTILOS DE CENTRALIZAÇÃO E BACKGROUND EXPANDIDO (WEB)
     // -------------------------------------------------------------------
     webContainerWrapper: {
-        // Garante altura total e centraliza o app vertical e horizontalmente
+        // Garante que o container ocupe toda a largura e altura da viewport
+        width: '100vw',
         height: '100vh', 
-        backgroundColor: '#303030', // Cor de fundo do corpo da página
+        // *** ALTERADO: Fundo expandido para Amarelo (#FFD700) ***
+        backgroundColor: "#FFD700", 
+
+        // Centraliza o conteúdo (mainContainer)
         alignItems: 'center', 
         justifyContent: 'center', 
         overflow: 'auto',
+        paddingVertical: 20, // Respiro vertical
     },
 
     mainContainer: { 
-        flex: 1, 
-        backgroundColor: "#FFD700",
-        // Limita a largura do app na Web
+        // flex: 1 é mantido para Mobile
+        flex: Platform.OS !== 'web' ? 1 : null,
+        backgroundColor: "#FFD700", // Cor de fundo do app (Amarelo)
+
+        // Largura máxima do app centralizado na Web
         maxWidth: Platform.OS === 'web' ? 768 : null,
-        // Centraliza horizontalmente e dá respiro vertical na Web
-        marginHorizontal: Platform.OS === 'web' ? 'auto' : 0,
-        marginVertical: Platform.OS === 'web' ? 20 : 0,
+        
+        // Altura na web
+        height: Platform.OS === 'web' ? '100%' : 'auto',
     },
     
-    // Ajusta o padding do ScrollView apenas na Web para não cortar o topo/rodapé do App contido
+    // Ajusta o padding do ScrollView
     scrollContent: { 
         padding: 20, 
         paddingBottom: 60, 
         alignItems: "center",
-        paddingTop: Platform.OS === 'web' ? 0 : 20,
+        // Ajusta padding top para Mobile (onde a StatusBar foi escondida)
+        paddingTop: Platform.OS === 'web' ? 20 : 0, 
     },
     
-    // O seu headerContainer já tinha um maxWidth que ajuda na Web, ajustei o uso dele.
     headerContainer: { 
         alignItems: "center", 
         marginBottom: 20, 
         marginTop: 15, 
         width: "100%", 
     },
-    
-    // REMOVIDO: o maxWidth foi movido para o mainContainer para envolver o app inteiro.
-    // headerContainer: { ... maxWidth: 700, }, 
     
     headerBadge: {
         backgroundColor: "#E30B5C",
@@ -437,6 +471,9 @@ const styles = StyleSheet.create({
     },
 });
 
+// =================================================================
+// ESTILOS DE COMPONENTES INTERNOS
+// =================================================================
 const innerStyles = StyleSheet.create({
     divider: { height: 4, backgroundColor: "#F06292", marginBottom: 15, marginHorizontal: 15 },
     yearBadge: {
@@ -466,16 +503,13 @@ const innerStyles = StyleSheet.create({
 const innerStylesCustom = StyleSheet.create({
     eraContainer: {
         width: "100%",
-        maxWidth: 700, // Mantido para que as Eras não se estiquem dentro do app
+        maxWidth: 700, // Mantido para que as Eras não se estiquem demais dentro do app
         marginVertical: 15,
         backgroundColor: "#FFFFFF",
         borderRadius: 15,
         borderWidth: 5,
-        // Usado para cor da borda, a sombra é definida na função CartoonEra
-        // (Devido ao uso da variável 'color' que muda para cada era)
-        borderColor: "#9C27B0", 
         
-        // Sombras nativas Android/iOS (com hardcode no shadowColor)
+        // Sombra com hardcode para nativo (web é definido na função CartoonEra)
         shadowColor: "#E30B5C",
         shadowOffset: { width: 5, height: 5 },
         shadowOpacity: 1,
