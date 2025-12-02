@@ -2,11 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
 
-// ⚠️ NOTA: A constante de fonte não está definida no código,
-// então vamos usar um valor literal para FONT_TITLE_WEIGHT para evitar erro de referência.
 const FONT_TITLE_WEIGHT = '900'; 
 
-// 🔥 LISTA DE VÍDEOS LOCAIS (Título e Caminho de Arquivo)
 const DADOS_DOS_VIDEOS = [
     {
         id: 'dexter',
@@ -57,6 +54,22 @@ const DADOS_DOS_VIDEOS = [
         id: 'regularshow',
         title: 'Apenas um Show (2010)',
     },
+     {
+        id: 'omundodegreg',
+        title: 'O Mundo de Greg (Craig of the Creek)',
+    },
+     {
+        id: 'teentitansgo',
+        title: 'Os Jovens Titãs em Ação!',
+    },
+     {
+        id: 'victorevalentino',
+        title: 'Victor e Valentino (2019)',
+    },
+     {
+        id: 'webabybears',
+        title: 'We Baby Bears (2022)',
+    },
 ];
 
 const { width } = Dimensions.get('window');
@@ -82,7 +95,7 @@ export default function ListaDeEpisodiosScreen() {
         <ScrollView style={styles.mainContainer} contentContainerStyle={styles.scrollContent}>
             <View style={styles.headerContainer}>
                 <Text style={styles.mainTitle}>📺 Clipes Cartoon Network</Text>
-                <Text style={styles.subHeader}>Vídeos Locais em Loop</Text>
+                <Text style={styles.subHeader}>aberturas</Text>
             </View>
 
             {DADOS_DOS_VIDEOS.map((item) => (

@@ -23,7 +23,7 @@ export default function Home() {
         style={styles.logo}
         source={{
           // Nova URL (PNG direto)
-          uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Cartoon-Network-Logo.png",
+          uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cartoon_network_modified_logo.PNG/1200px-Cartoon_network_modified_logo.PNG",
         }}
       />
 

@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image, Platform } from "react-native";
+// IMPORTAÇÕES DE IMAGENS (verifique se os caminhos estão corretos)
 import imgDexter from "../assets/dexter.png";
 import imgAsPowerpuffGirls from "../assets/As Powerpuff Girls.png";
 import imgjohnnybravo from "../assets/johnny bravo.png";
@@ -11,6 +12,7 @@ import imgthegrimadventuresofbillymandy from "../assets/thegrimadventuresofbilly
 const FONT_TITLE_WEIGHT = '900';
 const FONT_SUBTITLE_WEIGHT = '700';
 
+// DADOS (inalterados)
 const CARTOON_NETWORK_ERAS = [
     {
         era: "ERA BLOCK / PRÉ-CHECKERBOARD",
@@ -253,7 +255,7 @@ const CartoonDetail = ({ title, sinopse, creator, curiosities, imageSource }) =>
                 <Image
                     source={imageSource} 
                     style={innerStylesCustom.cartoonImage}
-                    resizeMode="contain"
+                    resizeMode="cover" 
                 />
             </View>
         )}
@@ -284,7 +286,9 @@ const EraSectionTitle = ({ text }) => (
 );
 
 const CartoonEra = ({ era, years, color, description, content }) => (
-    <View style={[innerStylesCustom.eraContainer, { borderColor: color }]}>
+    <View style={[innerStylesCustom.eraContainer, { borderColor: color }, 
+        Platform.OS === 'web' && { boxShadow: `5px 5px 0px ${color}` } // Sombra na Web
+    ]}>
         <View style={innerStylesCustom.eraHeaderRow}>
             <Text style={[innerStylesCustom.eraTitle, { color: color }]}>{era}</Text>
             <View style={innerStyles.yearBadge}>
@@ -309,11 +313,22 @@ const CartoonEra = ({ era, years, color, description, content }) => (
 );
 
 export default function Page() {
+    // Estilos condionais para o contêiner principal
+    const containerStyle = [
+        styles.mainContainer,
+        Platform.OS === 'web' && styles.webContainerWrapper,
+    ];
+
     return (
-        <View style={styles.mainContainer}>
+        <View style={containerStyle}>
+            {/* Oculta a StatusBar na Web */}
+            {Platform.OS !== 'web' && <StatusBar barStyle="dark-content" backgroundColor="#FFD700" />}
+
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                <View style={styles.headerContainer}>
-                    <View style={styles.headerBadge}>
+                <View style={[styles.headerContainer, Platform.OS === 'web' && styles.headerContainerWeb]}>
+                    <View style={[styles.headerBadge, 
+                        Platform.OS === 'web' && { boxShadow: '3px 3px 0px #303030' } // Sombra do Badge na Web
+                    ]}>
                         <Text style={styles.headerBadgeText}>CN HISTORY</Text>
                     </View>
                     <Text style={styles.mainTitle}>LINHA DO TEMPO DA ANIMAÇÃO</Text>
@@ -333,9 +348,47 @@ export default function Page() {
 }
 
 const styles = StyleSheet.create({
-    mainContainer: { flex: 1, backgroundColor: "#FFD700" },
-    scrollContent: { padding: 20, paddingBottom: 60, alignItems: "center" },
-    headerContainer: { alignItems: "center", marginBottom: 20, marginTop: 15, width: "100%", maxWidth: 700 },
+    // -------------------------------------------------------------------
+    // ESTILOS DE CENTRALIZAÇÃO E CONTENÇÃO (APLICADOS NA WEB)
+    // -------------------------------------------------------------------
+    webContainerWrapper: {
+        // Garante altura total e centraliza o app vertical e horizontalmente
+        height: '100vh', 
+        backgroundColor: '#303030', // Cor de fundo do corpo da página
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        overflow: 'auto',
+    },
+
+    mainContainer: { 
+        flex: 1, 
+        backgroundColor: "#FFD700",
+        // Limita a largura do app na Web
+        maxWidth: Platform.OS === 'web' ? 768 : null,
+        // Centraliza horizontalmente e dá respiro vertical na Web
+        marginHorizontal: Platform.OS === 'web' ? 'auto' : 0,
+        marginVertical: Platform.OS === 'web' ? 20 : 0,
+    },
+    
+    // Ajusta o padding do ScrollView apenas na Web para não cortar o topo/rodapé do App contido
+    scrollContent: { 
+        padding: 20, 
+        paddingBottom: 60, 
+        alignItems: "center",
+        paddingTop: Platform.OS === 'web' ? 0 : 20,
+    },
+    
+    // O seu headerContainer já tinha um maxWidth que ajuda na Web, ajustei o uso dele.
+    headerContainer: { 
+        alignItems: "center", 
+        marginBottom: 20, 
+        marginTop: 15, 
+        width: "100%", 
+    },
+    
+    // REMOVIDO: o maxWidth foi movido para o mainContainer para envolver o app inteiro.
+    // headerContainer: { ... maxWidth: 700, }, 
+    
     headerBadge: {
         backgroundColor: "#E30B5C",
         paddingHorizontal: 16,
@@ -344,6 +397,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         borderWidth: 3,
         borderColor: "#FFFFFF",
+        // Sombras nativas Android/iOS
         shadowColor: "#303030",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 1,
@@ -382,10 +436,16 @@ const innerStyles = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#E30B5C",
         alignSelf: 'flex-start',
+        // Sombras nativas Android/iOS
         shadowColor: "#303030",
         shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 1,
         shadowRadius: 0,
+        elevation: 3,
+        // BOX SHADOW NA WEB
+        ...(Platform.OS === 'web' && {
+            boxShadow: '1px 1px 0px #303030',
+        }),
     },
     yearText: { fontSize: 13, fontWeight: FONT_TITLE_WEIGHT, color: "#E30B5C" },
     footer: { alignItems: "center", marginTop: 15, marginBottom: 20 },
@@ -395,17 +455,22 @@ const innerStyles = StyleSheet.create({
 const innerStylesCustom = StyleSheet.create({
     eraContainer: {
         width: "100%",
-        maxWidth: 700,
+        maxWidth: 700, // Mantido para que as Eras não se estiquem dentro do app
         marginVertical: 15,
         backgroundColor: "#FFFFFF",
         borderRadius: 15,
         borderWidth: 5,
-        borderColor: "#9C27B0",
+        // Usado para cor da borda, a sombra é definida na função CartoonEra
+        // (Devido ao uso da variável 'color' que muda para cada era)
+        borderColor: "#9C27B0", 
+        
+        // Sombras nativas Android/iOS (com hardcode no shadowColor)
         shadowColor: "#E30B5C",
         shadowOffset: { width: 5, height: 5 },
         shadowOpacity: 1,
         shadowRadius: 0,
         elevation: 8,
+        
         overflow: 'hidden',
         paddingBottom: 5,
     },
@@ -448,5 +513,11 @@ const innerStylesCustom = StyleSheet.create({
     },
     sectionTitleText: { fontWeight: FONT_TITLE_WEIGHT, fontSize: 18, color: "#C2185B" },
     imageContainer: { alignItems: 'center', marginBottom: 12 },
-    cartoonImage: { width: 160, height: 160, borderRadius: 8, borderWidth: 1, borderColor: '#FFD700' },
+    cartoonImage: { 
+        width: 210, 
+        height: 320,
+        borderRadius: 9, 
+        borderWidth: 7, 
+        borderColor: '#C2185B' 
+    },
 });
