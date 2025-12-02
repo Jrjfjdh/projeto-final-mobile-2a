@@ -2,96 +2,152 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
 
-// 🔥 LISTA DE VÍDEOS LOCAIS
+// ⚠️ NOTA: A constante de fonte não está definida no código,
+// então vamos usar um valor literal para FONT_TITLE_WEIGHT para evitar erro de referência.
+const FONT_TITLE_WEIGHT = '900'; 
+
+// 🔥 LISTA DE VÍDEOS LOCAIS (Título e Caminho de Arquivo)
 const DADOS_DOS_VIDEOS = [
-  {
-    id: 'gumball',
-    title: 'O Incrível Mundo de Gumball',
-    file: require('../assets/gumball.mp4'),
-  },
-  {
-    id: 'ben10',
-    title: 'Ben 10 Clássico',
-  },
-  {
-    id: 'titans',
-    title: 'Jovens Titãs',
-  },
+    {
+        id: 'dexter',
+        title: 'O Laboratório de Dexter (1996)',
+    },
+    {
+        id: 'powerpuff',
+        title: 'As Meninas Superpoderosas (1998)',
+    },
+    {
+        id: 'johnnybravo',
+        title: 'Johnny Bravo (1997)',
+    },
+    {
+        id: 'ededdeddy',
+        title: 'Du, Dudu e Edu (1999)',
+    },
+    {
+        id: 'ben10',
+        title: 'Ben 10 (2005)',
+    },
+    {
+        id: 'fosters',
+        title: 'A Mansão Foster para Amigos Imaginários (2004)',
+    },
+    {
+        id: 'billymandy',
+        title: 'As Terríveis Aventuras de Billy e Mandy (2001)',
+    },
+    {
+        id: 'chowder',
+        title: 'Chowder (2007)',
+    },
+    {
+        id: 'adventuretime',
+        title: 'Hora de Aventura (2010)',
+    },
+    {
+        id: 'gumball',
+        title: 'O Incrível Mundo de Gumball (2011)',
+        file: require('../assets/gumball.mp4'),
+    },
+    {
+        id: 'stevenuniverse',
+        title: 'Steven Universe (2013)',
+    },
+    {
+        id: 'regularshow',
+        title: 'Apenas um Show (2010)',
+    },
 ];
 
 const { width } = Dimensions.get('window');
-const VIDEO_HEIGHT = width * 0.5625;
+const VIDEO_HEIGHT = width * 0.5625; 
 
-// COMPONENTE DO PLAYER
 const VideoPlayer = ({ title, file }) => {
-  return (
-    <View style={styles.videoCard}>
-      <Text style={styles.videoTitle}>{title}</Text>
+    return (
+        <View style={styles.videoCard}>
+            <Text style={styles.videoTitle}>{title}</Text>
 
-      <Video
-        source={file}
-        style={styles.video}
-        useNativeControls
-        resizeMode="contain"
-      />
-    </View>
-  );
+            <Video
+                source={file}
+                style={styles.video}
+                useNativeControls
+                resizeMode="contain"
+            />
+        </View>
+    );
 };
 
-// TELA PRINCIPAL
 export default function ListaDeEpisodiosScreen() {
-  return (
-    <ScrollView contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.header}>📺 Episódios</Text>
-      <Text style={styles.subHeader}>Vídeos 100% Locais</Text>
+    return (
+        <ScrollView style={styles.mainContainer} contentContainerStyle={styles.scrollContent}>
+            <View style={styles.headerContainer}>
+                <Text style={styles.mainTitle}>📺 Clipes Cartoon Network</Text>
+                <Text style={styles.subHeader}>Vídeos Locais em Loop</Text>
+            </View>
 
-      {DADOS_DOS_VIDEOS.map((item) => (
-        <VideoPlayer
-          key={item.id}
-          title={item.title}
-          file={item.file}
-        />
-      ))}
-    </ScrollView>
-  );
+            {DADOS_DOS_VIDEOS.map((item) => (
+                <VideoPlayer
+                    key={item.id}
+                    title={item.title}
+                    file={item.file}
+                />
+            ))}
+        </ScrollView>
+    );
 }
 
-// ESTILOS
 const styles = StyleSheet.create({
-  scrollContent: {
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 5,
-    color: '#E30613',
-  },
-  subHeader: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginBottom: 20,
-    color: '#333',
-  },
-  videoCard: {
-    width: '100%',
-    marginBottom: 20,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 8,
-    paddingBottom: 10,
-  },
-  videoTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    padding: 10,
-    backgroundColor: '#D9D9D9',
-    textAlign: 'center',
-  },
-  video: {
-    width: '100%',
-    height: VIDEO_HEIGHT,
-    backgroundColor: '#000',
-  },
+    mainContainer: { 
+        flex: 1, 
+        backgroundColor: "#FFD700" // Fundo CN Amarelo
+    },
+    scrollContent: {
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+        alignItems: 'center',
+    },
+    headerContainer: { 
+        alignItems: "center", 
+        marginBottom: 25, 
+        width: "100%", 
+    },
+    mainTitle: {
+        fontSize: 26,
+        fontWeight: FONT_TITLE_WEIGHT,
+        color: "#C2185B", // Vermelho CN
+        textAlign: 'center',
+        marginBottom: 4,
+        textShadowColor: 'rgba(255, 255, 255, 0.9)',
+        textShadowOffset: { width: 1.5, height: 1.5 },
+        textShadowRadius: 0,
+    },
+    subHeader: {
+        fontSize: 16,
+        color: "#303030",
+        fontWeight: '700',
+    },
+    videoCard: {
+        width: '100%',
+        maxWidth: 600, // Limite a largura para telas grandes
+        marginBottom: 25,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 8,
+        overflow: 'hidden',
+        borderWidth: 4,
+        borderColor: '#E30B5C', // Borda vermelha
+        elevation: 5,
+    },
+    videoTitle: {
+        fontSize: 18,
+        fontWeight: '700',
+        padding: 10,
+        backgroundColor: '#D9D9D9',
+        textAlign: 'center',
+        color: '#333',
+    },
+    video: {
+        width: '100%',
+        height: VIDEO_HEIGHT,
+        backgroundColor: '#000',
+    },
 });
