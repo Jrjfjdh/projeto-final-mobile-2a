@@ -55,6 +55,16 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="video"
+        options={{ 
+          title: "aberturas", 
+          headerShown: false,
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="face" size={24} color={color} />
+          ),
+        }}
+      />
         <Tabs.Screen
         name="aboutme"
         options={{ title: "Sobre Mim", headerShown: false,
