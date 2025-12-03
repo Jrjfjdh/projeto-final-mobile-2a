@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 
-// Paleta de cores inspirada no Cartoon Network (Melhorada para o efeito "Toon")
 const CN_COLORS = {
   PRIMARY_BLUE: "#00B0FF", 
   SECONDARY_PURPLE: "#8E24AA", 
-  ACCENT_YELLOW: "#FFD700", // Amarelo vibrante - agora será o principal do cartão
+  ACCENT_YELLOW: "#FFD700", //agora será o principal do cartão
   OUTLINE_BLACK: "#000000", // Preto puro para os contornos
   TEXT_DARK: "#212121", 
   TEXT_LIGHT: "#FFFFFF", 
-  BRIGHT_WHITE: "#FAFAFA", // Branco brilhante
+  BRIGHT_WHITE: "#FAFAFA",
   BACKGROUND_LIGHT: "#E0F7FA", // Um azul ou ciano bem claro para o fundo
 };
 
