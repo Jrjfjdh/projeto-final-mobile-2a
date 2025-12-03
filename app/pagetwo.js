@@ -256,7 +256,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "We Baby Bears (2022)",
                 creator: "Manny Hernandez",
-                sinopse: "Um *spin-off* de *Urso Sem Curso*, focado nas aventuras de Pardo, Panda e Polar enquanto bebês, viajando pelo mundo em uma caixa mágica.",
+                sinopse: "We Baby Bears acompanha novamente os irmãos Grizz, Panda e Ice Bear, porém enquanto bebês ursos tentando encontrar uma casa. Os três juntos vivem aventuras divertidas e encantadoras enquanto emocionam a todos a sua volta com sua fofura. Com a ajuda do forte carinho que têm um pelo outro, os três se protegeram dos perigos da cidade enquanto não encontram seu verdadeiro lar.",
                 imageSource: imgbear,
                 curiosities: [
                     "O estilo de animação é mais vibrante e estilizado do que a série original, *Urso Sem Curso*.",

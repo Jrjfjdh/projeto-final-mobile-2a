@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,10 +7,10 @@ import {
   ScrollView,
   StatusBar,
   TouchableOpacity,
-  Platform
+  Platform,
+  Animated,
 } from "react-native";
 
-// Certifique-se de que o caminho para a imagem está correto em seu projeto
 import imgblock from "../assets/block.jpg"; 
 import imgcheckerboard from "../assets/checkerboard.webp";
 import imgpowerhouse from "../assets/powerhouse.webp"; 
@@ -19,11 +19,6 @@ import imgtoonix from "../assets/toonix.webp";
 import imgcheckit from "../assets/checkit.webp"; 
 import imgdimen from "../assets/dimensional.webp"; 
 
-
-
-// =================================================================
-// DADOS DA LINHA DO TEMPO (PERMANECEM IGUAIS)
-// =================================================================
 const historyData = [
   {
     id: 1,
@@ -37,7 +32,7 @@ const historyData = [
     id: 2,
     title: "1992–1996: Era Block (Lançamento)",
     years: "1992–1996",
-        imageSource: imgblock,
+    imageSource: imgblock,
     description: "Nos primeiros anos, o Cartoon Network vivia de reprises da Hanna-Barbera e dos Looney Tunes. Tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995, um bloco de curtas que revelou nomes gigantes como Craig McCracken e Tartakovsky, formando a primeira geração dos Cartoon Cartoons.",
     fullDescription: "Nos primeiros anos (1992–1996), o Cartoon Network vivia quase totalmente de reprises da Hanna-Barbera e dos Looney Tunes. Essa “Era Block” não tinha produções próprias, mas tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995: um bloco para curtas feitos por novos animadores. Dessa iniciativa nasceram nomes gigantes como Craig McCracken, Tartakovsky e David Feiss, além dos futuros criadores de Family Guy e Padrinhos Mágicos. Esses curtas formariam a primeira geração dos Cartoon Cartoons, que consolidaram o canal mundialmente. Paralelamente surgiram dois marcos: a expansão para a América Latina e a criação do Boomerang, inicialmente um bloco só de clássicos."
   },
@@ -62,8 +57,8 @@ const historyData = [
     title: "2010–2012: Era Toonix (Fundo do Poço)",
     years: "2010–2012",
     imageSource: imgtoonix,
-    description: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012.",
-    fullDescription: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012. Os Toonix foram introduzidos no final de 2010 nas transmissões da Cartoon Network na região da Ásia-Pacífico . O design foi usado em diversos blocos de programação (como o Toonilicious ) e posteriormente introduzido como avatares para os membros do CN Club online. Durante a reformulação da marca CHECK it (It's a Fun Thing!) em 1º de outubro de 2011, o bloco Toonilicious usa um visual semelhante ao da América Latina em suas promoções, incluindo alguns bumpers que foram editados para conter um logotipo CHECK it animado."
+    description: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012.",
+    fullDescription: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012. Os Toonix foram introduzidos no final de 2010 nas transmissões da Cartoon Network na região da Ásia-Pacífico . O design foi usado em diversos blocos de programação (como o Toonilicious ) e posteriormente introduzido como avatares para os membros do CN Club online. Durante a reformulação da marca CHECK it (It's a Fun Thing!) em 1º de outubro de 2011, o bloco Toonilicious usa um visual semelhante ao da América Latina em suas promoções, incluindo alguns bumpers que foram editados para conter um logotipo CHECK it animado."
   },
   {
     id: 6,
@@ -74,7 +69,7 @@ const historyData = [
     fullDescription: "CHECK it (também conhecido como It's A Fun Thing na Ásia e Austrália) foi uma nova identidade visual para o canal, apresentada pela primeira vez em 22 de março de 2010 e lançada em 29 de maio de 2010 nos EUA e em 1º de outubro de 2011 na Ásia e Austrália, sucedendo a era Noods . Essa era apresentou novos programas que definiriam a direção futura da emissora, como Adventure Time , Regular Show e The Amazing World of Gumball. A décima identidade visual da emissora, criada pela Brand New School, faz uso intenso do padrão quadriculado em preto e branco que compunha o primeiro logotipo, além de diversas variações de cores CMYK e vários padrões. Em 20 de maio de 2013, os bumpers e as telas UP NEXT do canal foram reformulados com a nova identidade visual, CHECK it 3.0. Os bumpers UP NEXT, por exemplo, consistiam em um cubo giratório com a imagem animada de um personagem do próximo programa em uma paleta de cores CMYK, acompanhada de música especialmente encomendada à Impactist . Em 1º de junho de 2015, os bumpers foram reformulados novamente, utilizando gradientes acentuados e novos emojis, e passaram a ser conhecidos como CHECK it 4.0. O slogan CHECK it é uma frase recorrente em Regular Show . A partir dessa era, inicia-se um período de transição do uso de gráficos 3D para um design mais plano com cores mais vibrantes. O CHECK it 1.0 é a última era a utilizar gráficos 3D. Em alguns outros feeds internacionais, coincidiu com a era Dimensional . O feed dos Estados Unidos, em 14 de junho de 2016, adotou a era Dimensional como sucessora da era CHECK it. Até o momento, o CHECK it 4.0 é a última reformulação de marca com suporte para todos os feeds internacionais."
   },
   {
-  id: 7,
+    id: 7,
     title: "2016–atual: Era Dimensional",
     years: "2016–atual",
     imageSource: imgdimen,
@@ -83,16 +78,88 @@ const historyData = [
   },
 ];
 
-
 const WebBackground = ({ children }) => (
   <View style={styles.webContainerWrapper}>
     {children}
   </View>
 );
 
-// =================================================================
-// COMPONENTE PRINCIPAL
-// =================================================================
+const AnimatedCard = ({ item, isExpanded, toggleExpand }) => {
+  const animateValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(
+      animateValue,
+      {
+        toValue: isExpanded ? 1 : 0,
+        duration: 300,
+        useNativeDriver: Platform.OS !== 'web',
+      }
+    ).start();
+  }, [isExpanded, animateValue]);
+
+  const descriptionStyle = {
+    opacity: animateValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [1, 1],
+    }),
+    transform: [{
+      scaleY: animateValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [1, 1],
+      })
+    }],
+  };
+  
+  const cardAnimatedStyle = {
+    transform: [{
+      scale: animateValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [1, 1.01],
+      })
+    }],
+  };
+
+  return (
+    <Animated.View style={[styles.card, cardAnimatedStyle]}>
+      {(item.image || item.imageSource) && (
+        <Image
+          source={item.imageSource || item.image} 
+          style={styles.cardImage}
+          resizeMode="cover"
+        />
+      )}
+      {(!item.image && !item.imageSource) && <View style={styles.placeholderImage} />}
+
+      <View style={styles.cardContent}>
+        <View style={styles.cardHeaderRow}>
+          <View style={styles.titleWrapper}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+          </View>
+          <View style={styles.yearBadge}>
+            <Text style={styles.yearText}>{item.years}</Text>
+          </View>
+        </View>
+
+        <View style={styles.divider} />
+
+        <Animated.Text style={[styles.cardDescription, descriptionStyle]}>
+          {isExpanded ? item.fullDescription : item.description}
+        </Animated.Text>
+
+        <TouchableOpacity
+          style={styles.readMoreButton}
+          onPress={() => toggleExpand(item.id)}
+        >
+          <Text style={styles.readMoreText}>
+            {isExpanded ? 'VER MENOS ▲' : 'VER MAIS ▼'}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </Animated.View>
+  );
+};
+
 export default function PageOne() {
   const [expandedCard, setExpandedCard] = useState(null);
 
@@ -100,16 +167,13 @@ export default function PageOne() {
     setExpandedCard(expandedCard === id ? null : id);
   };
 
-  // Conteúdo principal do APP (o que será centralizado na Web)
   const PageContent = (
     <View style={styles.mainContainer}>
-      {/* Oculta a StatusBar na Web */}
       {Platform.OS !== 'web' &&
         <StatusBar barStyle="light-content" backgroundColor="#FF5722" />
       }
 
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-
         <View style={styles.headerContainer}>
           <View style={styles.headerBadge}>
             <Text style={styles.headerBadgeText}>A HISTÓRIA DO CARTOON NETWORK</Text>
@@ -119,96 +183,40 @@ export default function PageOne() {
         </View>
 
         {historyData.map((item) => (
-          <View key={item.id} style={styles.card}>
-
-            {/* Renderiza a imagem se 'imageSource' ou 'image' existirem */}
-            {(item.image || item.imageSource) && (
-              <Image
-                source={item.imageSource || item.image} 
-                style={styles.cardImage}
-                resizeMode="cover"
-              />
-            )}
-            {/* Bloco de fallback (placeholder) */}
-            {(!item.image && !item.imageSource) && <View style={styles.placeholderImage} />}
-
-            <View style={styles.cardContent}>
-              <View style={styles.cardHeaderRow}>
-                <View style={styles.titleWrapper}>
-                  <Text style={styles.cardTitle}>{item.title}</Text>
-                </View>
-                <View style={styles.yearBadge}>
-                  <Text style={styles.yearText}>{item.years}</Text>
-                </View>
-              </View>
-
-              <View style={styles.divider} />
-
-              <Text style={styles.cardDescription}>
-                {expandedCard === item.id ? item.fullDescription : item.description}
-              </Text>
-
-              <TouchableOpacity
-                style={styles.readMoreButton}
-                onPress={() => toggleExpand(item.id)}
-              >
-                <Text style={styles.readMoreText}>
-                  {expandedCard === item.id ? 'VER MENOS ▲' : 'VER MAIS ▼'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+          <AnimatedCard
+            key={item.id}
+            item={item}
+            isExpanded={expandedCard === item.id}
+            toggleExpand={toggleExpand}
+          />
         ))}
       </ScrollView>
     </View>
   );
 
-  // Retorna o conteúdo dentro do WebBackground APENAS se for Web
   if (Platform.OS === 'web') {
     return <WebBackground>{PageContent}</WebBackground>;
   }
 
-  // Retorna o conteúdo diretamente para Mobile/App
   return PageContent;
 }
 
-// =================================================================
-// ESTILOS
-// =================================================================
 const styles = StyleSheet.create({
-  // -------------------------------------------------------------------
-  // ESTILOS DE CENTRALIZAÇÃO E BACKGROUND EXPANDIDO (WEB)
-  // -------------------------------------------------------------------
   webContainerWrapper: {
-    // Garante que o container ocupe toda a largura e altura da viewport
     width: '100vw',
     height: '100vh',
-    backgroundColor: '#FFD700', // Cor de fundo expandida (AMARELO CLARO)
-
-    // Centraliza o conteúdo (mainContainer)
+    backgroundColor: '#FFD700',
     alignItems: 'center',
     justifyContent: 'center',
-
     overflow: 'auto', 
     paddingVertical: 20, 
   },
-
   mainContainer: {
-    backgroundColor: "#FBC02D", // Cor de fundo do app (AMARELO ESCURO/MOSTARDA)
-
-    // *** ALTERADO: Largura máxima aumentada para 800px na Web ***
+    backgroundColor: "#FBC02D",
     maxWidth: Platform.OS === 'web' ? 800 : null,
-    
-    // Altura na web
     height: Platform.OS === 'web' ? '100%' : 'auto', 
-    
-    // Configurações de layout Mobile
     flex: Platform.OS !== 'web' ? 1 : null,
   },
-
-  // -------------------------------------------------------------------
-  // RESTANTE DOS ESTILOS
-  // -------------------------------------------------------------------
   scrollContent: {
     padding: 15,
     paddingBottom: 60,
@@ -252,25 +260,18 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
   },
-
-  // Estilos do Card com correção de sombra (elevation) para a Web
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 16,
     marginBottom: 20,
-
-    // Estilos padrão de sombra (iOS/Android)
     shadowColor: "#D32F2F",
     shadowOpacity: 0.3,
     shadowOffset: { width: 4, height: 6 },
     shadowRadius: 10,
     elevation: 8,
-
-    // Estilos de sombra para Web
     ...(Platform.OS === 'web' && {
       boxShadow: '4px 6px 10px rgba(211, 47, 47, 0.3)',
     }),
-
     overflow: "hidden",
     borderWidth: 4,
     borderColor: "#303F9F",
@@ -295,6 +296,7 @@ const styles = StyleSheet.create({
   },
   titleWrapper: {
     flex: 1,
+
     marginRight: 10,
   },
   cardTitle: {

@@ -4,40 +4,40 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaVi
 const localImage = require('../assets/ted.jpg'); 
 
 const NEW_PALETTE = {
-    BACKGROUND: "#FFCA28",        
-    PRIMARY_ACCENT: "#FF7043",    
-    SECONDARY_ACCENT: "#8E24AA",  
-    CARD_SHADOW: "#26C6DA",       
-    CARD_BG: "#FFFFFF",           
-    TEXT_COLOR: "#424242",        
-    HIGHLIGHT_BG: "#FFEE58",      
+    BACKGROUND: "#FFCA28",
+    PRIMARY_ACCENT: "#FF7043",
+    SECONDARY_ACCENT: "#8E24AA",
+    CARD_SHADOW: "#26C6DA",
+    CARD_BG: "#FFFFFF",
+    TEXT_COLOR: "#424242",
+    HIGHLIGHT_BG: "#FFEE58",
 };
 
 const articleData = {
-    mainTitle: "O Magnata por Trás da CNN e CN",
-    subtitle: "Ted Turner: De Atlanta para o Mundo",
-    badge: "LEGADO DA MÍDIA",
-    cardTitle1: "Visão Geral do Canal",
-    cardTitle2: "Perfil de Ted Turner",
-    cardTitle3: "A Criação do Acervo de Desenhos",
-    cardTitle4: "Filantropia e Outras Conquistas",
+    mainTitle: "O Visionário Por Trás da CN e CNN",
+    subtitle: "Ted Turner: Do Outdoor à Mídia Global",
+    badge: "MAGNATA EMPRESARIAL",
+    cardTitle1: "Perfil e Origens",
+    cardTitle2: "A Ousadia na Televisão",
+    cardTitle3: "A Criação da Cartoon Network",
+    cardTitle4: "Legado e Inovações",
+    cardTitle5: "Curiosidades sobre Ted Turner", 
     year: "1992"
 };
 
 export default function CreatorScreen() {
-        const renderHighlight = (text) => (
+    
+    const renderHighlight = (text) => (
         <Text style={styles.highlightText}>{text}</Text>
     );
 
-    const renderImage = () => {
-        return (
-            <Image
-                source={localImage} 
-                style={styles.cardImage} 
-                accessibilityLabel="Foto de Robert Edward 'Ted' Turner III"
-            />
-        );
-    };
+    const renderImage = () => (
+        <Image
+            source={localImage} 
+            style={styles.cardImage} 
+            accessibilityLabel="Foto de Robert Edward 'Ted' Turner III"
+        />
+    );
 
     const containerStyle = [
         styles.mainContainer,
@@ -47,90 +47,84 @@ export default function CreatorScreen() {
     return (
         <SafeAreaView style={containerStyle}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                
                 <View style={styles.headerContainer}>
                     <View style={styles.headerBadge}>
                         <Text style={styles.headerBadgeText}>{articleData.badge}</Text>
                     </View>
-
                     <Text style={styles.mainTitle}>{articleData.mainTitle}</Text>
-                    
                     <Text style={styles.subHeader}>{articleData.subtitle}</Text>
                 </View>
 
-                Card do Artigo
                 <View style={[
                     styles.card,
-                    // Aplica box-shadow na Web 
                     Platform.OS === 'web' && { boxShadow: `4px 6px 10px ${NEW_PALETTE.CARD_SHADOW}` }
                 ]}>
-                    
                     {renderImage()}
-
                     <View style={styles.cardContent}>
-
                         <View style={styles.cardHeaderRow}>
                             <View style={styles.titleWrapper}>
                                 <Text style={styles.cardTitle}>{articleData.cardTitle1}</Text>
                             </View>
                             <View style={styles.yearBadge}>
-                                <Text style={styles.yearText}>Lançado em {articleData.year}</Text>
+                                <Text style={styles.yearText}>Nascimento em {articleData.year}</Text>
                             </View>
                         </View>
-
-                        <View style={styles.divider} />
-
-                        <Text style={styles.cardDescription}>
-                            O Cartoon Network, lançado em {renderHighlight('1º de outubro de 1992')}, foi um marco na televisão a cabo. Ele foi fundado pela
-                            empresa {renderHighlight('Turner Broadcasting System')}, liderada por Ted Turner.
-                        </Text>
-                        <Text style={styles.cardDescription}>
-                            Seu objetivo era fornecer uma programação 24 horas por dia, 7 dias por semana, 
-                            dedicada exclusivamente à animação, aproveitando a vasta biblioteca de desenhos que Turner havia adquirido.
-                        </Text>
-
-                        <Text style={styles.cardTitle}>{articleData.cardTitle2}</Text>
                         <View style={styles.divider} />
                         <Text style={styles.cardDescription}>
                             • Nome Completo: Robert Edward "Ted" Turner III
                         </Text>
                         <Text style={styles.cardDescription}>
-                            • Nascimento: {renderHighlight('19 de Novembro de 1938')} (Cincinatti, Ohio)
+                            • Nascimento: {renderHighlight('19 de Novembro de 1938')} (Cincinnati, Ohio)
                         </Text>
                         <Text style={styles.cardDescription}>
                             • Posição: Empresário, Magnata da Mídia e Filantropo.
                         </Text>
                         <Text style={styles.cardDescription}>
-                            • Foco: Conhecido por sua abordagem agressiva e visão de futuro, que transformou a indústria de notícias e entretenimento.
+                            Nascido em Ohio, Ted cresceu na Geórgia em uma família de negócios de outdoors. Aos 24 anos, após a perda do pai, {renderHighlight('ele herdou a empresa familiar')}, assumindo o desafio de administrá-la.
+                        </Text>
+
+                        <Text style={styles.cardTitle}>{articleData.cardTitle2}</Text>
+                        <View style={styles.divider} />
+                        <Text style={styles.cardDescription}>
+                            Nos anos 60, Ted expandiu a empresa para o ramo da televisão. Em {renderHighlight('1970')}, fundou a {renderHighlight('Turner Broadcasting System (TBS)')}, transformando estações locais em redes nacionais.
+                        </Text>
+                        <Text style={styles.cardDescription}>
+                            Sua maior ousadia veio em {renderHighlight('1980')} com a fundação da {renderHighlight('CNN (Cable News Network)')}, o primeiro canal de notícias 24 horas do mundo, revolucionando a indústria.
                         </Text>
 
                         <Text style={styles.cardTitle}>{articleData.cardTitle3}</Text>
                         <View style={styles.divider} />
                         <Text style={styles.cardDescription}>
-                            A chave para o CN foi a aquisição em 1991 do estúdio {renderHighlight('Hanna-Barbera')}, o que deu a Turner acesso a um tesouro de animações clássicas.
+                            Visando um vasto acervo de conteúdo, Ted investiu em catálogos de animações. Em {renderHighlight('1991')}, ele adquiriu a lendária {renderHighlight('Hanna-Barbera')}, obtendo acesso a clássicos como 'Tom & Jerry' e 'Scooby-Doo'.
                         </Text>
                         <Text style={styles.cardDescription}>
-                            Este acervo incluía mais de 8.500 horas de conteúdo de bibliotecas da {renderHighlight('MGM')}, 
-                            {renderHighlight('Warner Bros. (pré-1948)')} e, claro, as criações da Hanna-Barbera como 'Os Flintstones', 'Os Jetsons' e 'Scooby-Doo'.
+                            Com este tesouro de desenhos em mãos, a ideia de um canal 24h dedicado apenas à animação se concretizou: a Cartoon Network nasceu em {renderHighlight('1º de Outubro de 1992')}.
                         </Text>
 
-                        {/* --- Seção Legado e Outras Conquistas --- */}
                         <Text style={styles.cardTitle}>{articleData.cardTitle4}</Text>
                         <View style={styles.divider} />
                         <Text style={styles.cardDescription}>
-                            Além do Cartoon Network, o maior legado de Ted Turner é a fundação da {renderHighlight('CNN (Cable News Network')} em 1980, o primeiro canal de notícias 24h do mundo.
+                            A CN rapidamente se destacou ao misturar clássicos do acervo com novas {renderHighlight('séries originais')} icônicas, como 'Dexter’s Laboratory' e 'As Meninas Superpoderosas', estabelecendo um novo padrão global para a animação televisiva.
                         </Text>
                         <Text style={styles.cardDescription}>
-                            Como filantropo, ele é famoso por sua doação de {renderHighlight('US$ 1 bilhão para as Nações Unidas')} e por ter fundado a 'United Nations Foundation'.
+                            Seu legado abrange mídia (CNN, TNT, TBS, CN), esportes (Atlanta Braves) e filantropia, incluindo uma famosa doação de {renderHighlight('US$ 1 bilhão para as Nações Unidas')}.
+                        </Text>
+
+                        <Text style={styles.cardTitle}>{articleData.cardTitle5}</Text>
+                        <View style={styles.divider} />
+                        <Text style={styles.cardDescription}>
+                            • É conhecido como {renderHighlight('“Mouth of the South”')} por falar o que pensa sem medo.
                         </Text>
                         <Text style={styles.cardDescription}>
-                            Turner também é um velejador premiado, tendo vencido a prestigiosa 'America's Cup' em {renderHighlight('1977')}.
+                            • Já foi dono de times esportivos, incluindo o {renderHighlight('Atlanta Braves')} (beisebol) e o {renderHighlight('Atlanta Hawks')} (basquete).
+                        </Text>
+                        <Text style={styles.cardDescription}>
+                            • Doou {renderHighlight('US$ 1 bilhão para a ONU')} e para causas ambientais, sendo um dos maiores filantropos da história moderna.
                         </Text>
 
                         <View style={styles.footer}>
-                            <Text style={styles.footerText}>FIM DO ARTIGO</Text>
+                            <Text style={styles.footerText}>FIM DO ARTIGO: LEGADO TURNER</Text>
                         </View>
-                        
                     </View>
                 </View>
             </ScrollView>
@@ -139,29 +133,21 @@ export default function CreatorScreen() {
 }
 
 const styles = StyleSheet.create({
-    
     webContainerWrapper: {
-        // Garante altura boa e centraliza o app vertical e horizontalmente
         height: '100vh', 
-        backgroundColor: '#FFD700', 
+        backgroundColor: NEW_PALETTE.BACKGROUND, 
         alignItems: 'center', 
         justifyContent: 'center', 
-        overflow: 'auto', // Permite scroll se o conteúdo for maior que a tela
+        overflow: 'auto', 
     },
-
     mainContainer: {
         flex: 1,
         backgroundColor: NEW_PALETTE.BACKGROUND, 
         paddingTop: Platform.OS === 'android' ? 25 : 0, 
-        
-        // Limita a largura do app na Web
-        maxWidth: Platform.OS === 'web' ? 700 : null,
-        // Centraliza horizontalmente e dá respiro vertical na Web
+        maxWidth: Platform.OS === 'web' ? 850 : null, 
         marginHorizontal: Platform.OS === 'web' ? 'auto' : 0,
         marginVertical: Platform.OS === 'web' ? 20 : 0,
     },
-    
-    
     scrollContent: {
         padding: 15,
         paddingBottom: 60,
@@ -193,7 +179,7 @@ const styles = StyleSheet.create({
         color: NEW_PALETTE.SECONDARY_ACCENT, 
         textAlign: 'center',
         marginBottom: 4,
-        textShadowColor: NEW_PALETTE.PRIMARY_ACCENT, // faz Sombra
+        textShadowColor: NEW_PALETTE.PRIMARY_ACCENT, 
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 0.1,
         letterSpacing: 1.5,
@@ -206,23 +192,18 @@ const styles = StyleSheet.create({
         textShadowOffset: { width: 1, height: 1 },
         textShadowRadius: 1,
     },
-    
-    // Estilos do Card
     card: {
         backgroundColor: NEW_PALETTE.CARD_BG,
         borderRadius: 16,
         marginBottom: 20,
-        // Sombras nativas (iOS/Android)
-        shadowColor: NEW_PALETTE.CARD_SHADOW, // #26C6DA (Ciano Brilhante)
+        shadowColor: NEW_PALETTE.CARD_SHADOW, 
         shadowOpacity: 0.8,
         shadowOffset: { width: 4, height: 6 },
         shadowRadius: 10,
         elevation: 10,
-        // A sombra CSS para Web é adicionada condicionalmente no componente
-        
         overflow: "hidden",
         borderWidth: 5,
-        borderColor: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
+        borderColor: NEW_PALETTE.SECONDARY_ACCENT, 
     },
     cardImage: {
         width: "100%",
@@ -264,7 +245,7 @@ const styles = StyleSheet.create({
         color: NEW_PALETTE.CARD_BG, 
     },
     divider: {
-        height: 4, // Divisor mais grosso
+        height: 4, 
         backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, 
         marginBottom: 15,
     },
