@@ -1,24 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView, Platform } from 'react-native';
 
-/**
- * Tela do artigo sobre o criador do Cartoon Network.
- * Paleta de cores atualizada para um tema "Pop/Gummy" (Chamativo e Infantil).
- */
-
-// 1. IMPORTAÇÃO DA IMAGEM LOCAL (Assumindo que a imagem está em ./assets/ted_turner.jpg)
-// Certifique-se de que o arquivo 'ted_turner.jpg' está na pasta 'assets' do seu projeto.
 const localImage = require('../assets/ted.jpg'); 
 
-// NOVA PALETA DE CORES (Pop/Gummy: Laranja, Amarelo, Roxo e Ciano)
 const NEW_PALETTE = {
-    BACKGROUND: "#FFCA28",        // Amarelo Dourado Claro - Fundo vibrante e alegre
-    PRIMARY_ACCENT: "#FF7043",    // Laranja Vibrante - Títulos, Botões e Destaques Principais
-    SECONDARY_ACCENT: "#8E24AA",  // Roxo Profundo/Forte - Divisores, Borda do Card e Badges
-    CARD_SHADOW: "#26C6DA",       // Ciano Brilhante - Sombra para contraste pop
-    CARD_BG: "#FFFFFF",           // Branco
-    TEXT_COLOR: "#424242",        // Cinza Escuro Suave
-    HIGHLIGHT_BG: "#FFEE58",      // Amarelo Limão Claro - Fundo de Destaque
+    BACKGROUND: "#FFCA28",        
+    PRIMARY_ACCENT: "#FF7043",    
+    SECONDARY_ACCENT: "#8E24AA",  
+    CARD_SHADOW: "#26C6DA",       
+    CARD_BG: "#FFFFFF",           
+    TEXT_COLOR: "#424242",        
+    HIGHLIGHT_BG: "#FFEE58",      
 };
 
 const articleData = {
@@ -33,24 +25,20 @@ const articleData = {
 };
 
 export default function CreatorScreen() {
-    
-    // Função para renderizar o texto com destaque (highlight)
-    const renderHighlight = (text) => (
+        const renderHighlight = (text) => (
         <Text style={styles.highlightText}>{text}</Text>
     );
 
-    // FUNÇÃO renderImage USANDO A IMAGEM LOCAL
     const renderImage = () => {
         return (
             <Image
-                source={localImage} // Usa o 'require' importado
-                style={styles.cardImage} // Estilo que define largura e altura
+                source={localImage} 
+                style={styles.cardImage} 
                 accessibilityLabel="Foto de Robert Edward 'Ted' Turner III"
             />
         );
     };
 
-    // Estilos condionais para o contêiner principal para centralização na Web
     const containerStyle = [
         styles.mainContainer,
         Platform.OS === 'web' && styles.webContainerWrapper,
@@ -60,47 +48,38 @@ export default function CreatorScreen() {
         <SafeAreaView style={containerStyle}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 
-                {/* Cabeçalho Principal (headerContainer) */}
                 <View style={styles.headerContainer}>
-                    {/* Badge (headerBadge) */}
                     <View style={styles.headerBadge}>
                         <Text style={styles.headerBadgeText}>{articleData.badge}</Text>
                     </View>
 
-                    {/* Título Principal (mainTitle) */}
                     <Text style={styles.mainTitle}>{articleData.mainTitle}</Text>
                     
-                    {/* Sub-cabeçalho (subHeader) */}
                     <Text style={styles.subHeader}>{articleData.subtitle}</Text>
                 </View>
 
-                {/* --- Card do Artigo --- */}
+                Card do Artigo
                 <View style={[
                     styles.card,
-                    // Aplica box-shadow na Web usando a cor Ciano Brilhante
+                    // Aplica box-shadow na Web 
                     Platform.OS === 'web' && { boxShadow: `4px 6px 10px ${NEW_PALETTE.CARD_SHADOW}` }
                 ]}>
                     
-                    {/* Imagem Local Renderizada */}
                     {renderImage()}
 
                     <View style={styles.cardContent}>
 
-                        {/* Linha do Título do Card e Ano */}
                         <View style={styles.cardHeaderRow}>
                             <View style={styles.titleWrapper}>
                                 <Text style={styles.cardTitle}>{articleData.cardTitle1}</Text>
                             </View>
-                            {/* Badge do Ano (yearBadge) */}
                             <View style={styles.yearBadge}>
                                 <Text style={styles.yearText}>Lançado em {articleData.year}</Text>
                             </View>
                         </View>
 
-                        {/* Divisor (divider) */}
                         <View style={styles.divider} />
 
-                        {/* Visão Geral */}
                         <Text style={styles.cardDescription}>
                             O Cartoon Network, lançado em {renderHighlight('1º de outubro de 1992')}, foi um marco na televisão a cabo. Ele foi fundado pela
                             empresa {renderHighlight('Turner Broadcasting System')}, liderada por Ted Turner.
@@ -110,7 +89,6 @@ export default function CreatorScreen() {
                             dedicada exclusivamente à animação, aproveitando a vasta biblioteca de desenhos que Turner havia adquirido.
                         </Text>
 
-                        {/* --- Seção Perfil de Ted Turner --- */}
                         <Text style={styles.cardTitle}>{articleData.cardTitle2}</Text>
                         <View style={styles.divider} />
                         <Text style={styles.cardDescription}>
@@ -126,7 +104,6 @@ export default function CreatorScreen() {
                             • Foco: Conhecido por sua abordagem agressiva e visão de futuro, que transformou a indústria de notícias e entretenimento.
                         </Text>
 
-                        {/* --- Seção A Criação do Acervo de Desenhos --- */}
                         <Text style={styles.cardTitle}>{articleData.cardTitle3}</Text>
                         <View style={styles.divider} />
                         <Text style={styles.cardDescription}>
@@ -150,7 +127,6 @@ export default function CreatorScreen() {
                             Turner também é um velejador premiado, tendo vencido a prestigiosa 'America's Cup' em {renderHighlight('1977')}.
                         </Text>
 
-                        {/* Apenas um placeholder de rodapé */}
                         <View style={styles.footer}>
                             <Text style={styles.footerText}>FIM DO ARTIGO</Text>
                         </View>
@@ -162,15 +138,12 @@ export default function CreatorScreen() {
     );
 }
 
-// O objeto de estilos foi adaptado com a nova paleta de cores e ajustes de centralização.
 const styles = StyleSheet.create({
-    // -------------------------------------------------------------------
-    // ESTILOS DE CENTRALIZAÇÃO E CONTENÇÃO (APLICADOS NA WEB)
-    // -------------------------------------------------------------------
+    
     webContainerWrapper: {
-        // Garante altura total e centraliza o app vertical e horizontalmente
+        // Garante altura boa e centraliza o app vertical e horizontalmente
         height: '100vh', 
-        backgroundColor: '#FFD700', // Um cinza escuro para contraste fora do card
+        backgroundColor: '#FFD700', 
         alignItems: 'center', 
         justifyContent: 'center', 
         overflow: 'auto', // Permite scroll se o conteúdo for maior que a tela
@@ -178,7 +151,7 @@ const styles = StyleSheet.create({
 
     mainContainer: {
         flex: 1,
-        backgroundColor: NEW_PALETTE.BACKGROUND, // #FFCA28 (Amarelo Dourado Claro)
+        backgroundColor: NEW_PALETTE.BACKGROUND, 
         paddingTop: Platform.OS === 'android' ? 25 : 0, 
         
         // Limita a largura do app na Web
@@ -188,9 +161,7 @@ const styles = StyleSheet.create({
         marginVertical: Platform.OS === 'web' ? 20 : 0,
     },
     
-    // -------------------------------------------------------------------
-    // RESTANTE DOS ESTILOS
-    // -------------------------------------------------------------------
+    
     scrollContent: {
         padding: 15,
         paddingBottom: 60,
@@ -201,16 +172,16 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     headerBadge: {
-        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, // #FF7043 (Laranja Vibrante)
+        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, 
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 8,
         marginBottom: 8,
         borderWidth: 3,
-        borderColor: NEW_PALETTE.SECONDARY_ACCENT, // Borda Roxo
+        borderColor: NEW_PALETTE.SECONDARY_ACCENT, 
     },
     headerBadgeText: {
-        color: NEW_PALETTE.CARD_BG, // Texto Branco para alto contraste
+        color: NEW_PALETTE.CARD_BG, 
         fontSize: 12,
         fontWeight: "900",
         letterSpacing: 2,
@@ -219,17 +190,17 @@ const styles = StyleSheet.create({
     mainTitle: {
         fontSize: 38,
         fontWeight: "900",
-        color: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
+        color: NEW_PALETTE.SECONDARY_ACCENT, 
         textAlign: 'center',
         marginBottom: 4,
-        textShadowColor: NEW_PALETTE.PRIMARY_ACCENT, // Sombra Laranja
+        textShadowColor: NEW_PALETTE.PRIMARY_ACCENT, // faz Sombra
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 0.1,
         letterSpacing: 1.5,
     },
     subHeader: {
         fontSize: 20,
-        color: NEW_PALETTE.TEXT_COLOR, // Cinza Escuro Suave
+        color: NEW_PALETTE.TEXT_COLOR, 
         fontWeight: "800",
         textShadowColor: 'rgba(255, 255, 255, 0.4)',
         textShadowOffset: { width: 1, height: 1 },
@@ -253,13 +224,9 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
     },
-    // ESTILO DA IMAGEM REAL: Altura de 160 e 'cover' para preencher o banner
     cardImage: {
         width: "100%",
         height: 160,
-        // *** IMPORTANTE: 'cover' garante que a imagem preencha a área, mas pode cortar bordas. ***
-        // Se você quiser garantir que a imagem INTEIRA (o corpo e a cabeça) apareça, 
-        // mude para 'resizeMode: 'contain'', mas isso pode deixar espaços vazios.
         resizeMode: 'cover', 
     },
     cardContent: {
@@ -278,45 +245,43 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontSize: 22,
         fontWeight: "900",
-        color: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
+        color: NEW_PALETTE.SECONDARY_ACCENT, 
         marginBottom: 5,
         letterSpacing: 0.5,
     },
     yearBadge: {
-        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, // #FF7043 (Laranja Vibrante)
+        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, 
         paddingHorizontal: 12,
         paddingVertical: 5,
-        borderRadius: 10, // Borda mais arredondada
+        borderRadius: 10, 
         borderWidth: 2,
-        borderColor: NEW_PALETTE.CARD_BG, // Borda Branca
+        borderColor: NEW_PALETTE.CARD_BG, 
         alignSelf: 'flex-start',
     },
     yearText: {
         fontSize: 13,
         fontWeight: "900",
-        color: NEW_PALETTE.CARD_BG, // Texto Branco
+        color: NEW_PALETTE.CARD_BG, 
     },
     divider: {
         height: 4, // Divisor mais grosso
-        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, // #FF7043 (Laranja Vibrante)
+        backgroundColor: NEW_PALETTE.PRIMARY_ACCENT, 
         marginBottom: 15,
     },
     cardDescription: {
         fontSize: 16,
         lineHeight: 26,
-        color: NEW_PALETTE.TEXT_COLOR, // #424242 (Cinza Escuro Suave)
+        color: NEW_PALETTE.TEXT_COLOR, 
         textAlign: "justify",
         fontWeight: "500",
         marginBottom: 15,
     },
-    // Estilo para o Destaque (Highlight) dentro do texto
     highlightText: {
         fontWeight: "900",
-        color: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
-        backgroundColor: NEW_PALETTE.HIGHLIGHT_BG, // #FFEE58 (Amarelo Limão Claro)
+        color: NEW_PALETTE.SECONDARY_ACCENT, 
+        backgroundColor: NEW_PALETTE.HIGHLIGHT_BG, 
         paddingHorizontal: 5,
         borderRadius: 6,
-        // Efeito de "pop"
         textShadowColor: 'rgba(0, 0, 0, 0.2)',
         textShadowOffset: { width: 1, height: 1 },
         textShadowRadius: 1,
@@ -327,7 +292,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     footerText: {
-        color: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
+        color: NEW_PALETTE.SECONDARY_ACCENT, 
         fontSize: 14,
         fontWeight: "900",
         letterSpacing: 1.5,

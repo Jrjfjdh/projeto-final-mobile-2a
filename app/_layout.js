@@ -61,8 +61,7 @@ export default function TabLayout() {
           title: "aberturas", 
           headerShown: false,
           tabBarIcon: ({color}) => (
-            <MaterialIcons name="face" size={24} color={color} />
-          ),
+        <FontAwesome name="music" size={24} color={color} />          ),
         }}
       />
         <Tabs.Screen
