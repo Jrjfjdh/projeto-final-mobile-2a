@@ -11,7 +11,13 @@ import {
 } from "react-native";
 
 // Certifique-se de que o caminho para a imagem está correto em seu projeto
-import imgDexter from "../assets/dexter.png"; 
+import imgblock from "../assets/block.jpg"; 
+import imgcheckerboard from "../assets/checkerboard.webp";
+import imgpowerhouse from "../assets/powerhouse.webp"; 
+import imgcity from "../assets/city.jpeg"; 
+import imgtoonix from "../assets/toonix.webp"; 
+import imgcheckit from "../assets/checkit.webp"; 
+
 
 // =================================================================
 // DADOS DA LINHA DO TEMPO (PERMANECEM IGUAIS)
@@ -19,44 +25,49 @@ import imgDexter from "../assets/dexter.png";
 const historyData = [
   {
     id: 1,
-    title: "1992–1996: Era Block (Lançamento)",
-    years: "1992–1996",
-    description: "Nos primeiros anos, o Cartoon Network vivia de reprises da Hanna-Barbera e dos Looney Tunes. Tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995, um bloco de curtas que revelou nomes gigantes como Craig McCracken e Tartakovsky, formando a primeira geração dos Cartoon Cartoons.",
-    fullDescription: "Nos primeiros anos (1992–1996), o Cartoon Network vivia quase totalmente de reprises da Hanna-Barbera e dos Looney Tunes. Essa “Era Block” não tinha produções próprias, mas tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995: um bloco para curtas feitos por novos animadores. Dessa iniciativa nasceram nomes gigantes como Craig McCracken, Tartakovsky e David Feiss, além dos futuros criadores de Family Guy e Padrinhos Mágicos. Esses curtas formariam a primeira geração dos Cartoon Cartoons, que consolidaram o canal mundialmente. Paralelamente surgiram dois marcos: a expansão para a América Latina e a criação do Boomerang, inicialmente um bloco só de clássicos."
+    title: "1992–1999: Era Checkerboard (Consolidação)",
+    years: "1992–1999",
+    imageSource: imgcheckerboard,
+    description: "O canal engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações. A estética quadriculada virou marca registrada. No final dos anos 90, os animes surgiram como um novo competidor.",
+    fullDescription: "Com a Era Checkerboard (1992–1999), o canal finalmente engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações (Billy e Mandy, Samurai Jack, KND). A estética quadriculada e os bumpers criativos viraram marca registrada. Nessa fase também chegaram animações da Warner como Animaniacs, Freakazoid e Pink & Cérebro. Porém, ao final dos anos 90, o canal teria um novo competidor poderoso: os animes."
   },
   {
     id: 2,
-    title: "1992–1999: Era Checkerboard (Consolidação)",
-    years: "1992–1999",
-    imageSource: imgDexter, // Imagem aplicada aqui
-    description: "O canal engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações. A estética quadriculada virou marca registrada. No final dos anos 90, os animes surgiram como um novo competidor.",
-    fullDescription: "Com a Era Checkerboard (1992–1999), o canal finalmente engrenou com séries originais de sucesso como Dexter, Meninas Superpoderosas, Johnny Bravo, Du Dudu e Edu e Coragem. O bloco What a Cartoon! continuou revelando novas criações (Billy e Mandy, Samurai Jack, KND). A estética quadriculada e os bumpers criativos viraram marca registrada. Nessa fase também chegaram animações da Warner como Animaniacs, Freakazoid e Pink & Cérebro. Porém, ao final dos anos 90, o canal teria um novo competidor poderoso: os animes."
+    title: "1992–1996: Era Block (Lançamento)",
+    years: "1992–1996",
+        imageSource: imgblock,
+    description: "Nos primeiros anos, o Cartoon Network vivia de reprises da Hanna-Barbera e dos Looney Tunes. Tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995, um bloco de curtas que revelou nomes gigantes como Craig McCracken e Tartakovsky, formando a primeira geração dos Cartoon Cartoons.",
+    fullDescription: "Nos primeiros anos (1992–1996), o Cartoon Network vivia quase totalmente de reprises da Hanna-Barbera e dos Looney Tunes. Essa “Era Block” não tinha produções próprias, mas tudo mudou quando Fred Seibert criou o World Premiere Toons em 1995: um bloco para curtas feitos por novos animadores. Dessa iniciativa nasceram nomes gigantes como Craig McCracken, Tartakovsky e David Feiss, além dos futuros criadores de Family Guy e Padrinhos Mágicos. Esses curtas formariam a primeira geração dos Cartoon Cartoons, que consolidaram o canal mundialmente. Paralelamente surgiram dois marcos: a expansão para a América Latina e a criação do Boomerang, inicialmente um bloco só de clássicos."
   },
   {
     id: 3,
     title: "1999–2004: Era Powerhouse (O Auge)",
     years: "1999–2004",
-    description: "Marcou o auge do canal. Com o bloco Toonami, chegaram animes de sucesso (Dragon Ball, Pokémon, Yu Yu Hakusho). O Adult Swim ganhou mais força, e o canal virou fenômeno cultural, atingindo seu ponto máximo de popularidade.",
-    fullDescription: "A Era Powerhouse (1999–2004) marcou o auge. Com o bloco Toonami, chegaram Dragon Ball, Pokémon, Yu Yu Hakusho, Cavaleiros do Zodíaco, entre muitos outros. Os desenhos clássicos migraram para o canal Boomerang. O Adult Swim ganhou mais força, exibindo animações adultas. O canal virou fenômeno cultural, lançou o filme das Meninas Superpoderosas e atingiu seu ponto máximo de popularidade."
+    imageSource: imgpowerhouse,
+    description: "A era Powerhouse (também conhecida como Reface 1997 ) foi a terceira era do Cartoon Network . Começou em 2 de março de 1998, dando continuidade às eras Checkerboard e Starburst , e terminou nas primeiras horas da manhã de 14 de junho de 2004. Foi sucedida pela era CN City . O primeiro programa a ser exibido na era Powerhouse foi O Canada e o último foi Captain Planet . Screwy, Ain t It foi o slogan da era até 2001, juntamente com o slogan secundário You With Us?.",
+    fullDescription: "A era Powerhouse foi utilizada pelo Cartoon Network Europa de 1999 a 2002. A América Latina também utilizou esse visual de 30 de abril de 1998 a 31 de dezembro de 2004, enquanto na Ásia e na Austrália , essa era durou de 22 de agosto de 1999 a 30 de setembro de 2005. No Japão , essa era foi ao ar de 1999 a 31 de dezembro de 2005."
   },
   {
     id: 4,
     title: "2004–2010: Era City (Primeira Grande Crise)",
     years: "2004–2010",
-    description: "Crise marcada pela saída de Ted Turner e mudanças mal recebidas. O logo virou 'CN' e a programação foi tomada por reprises de Naruto e Ben 10. Apesar disso, surgiram boas animações como Mansão Foster, Flapjack e Chowder.",
-    fullDescription: "A Era City (2004–2010) marcou a primeira grande crise. Ted Turner saiu, Pablo Zuccarino assumiu, e várias mudanças foram mal recebidas: o clássico logotipo virou “CN”, muitos desenhos antigos desapareceram e a programação ficou tomada por reprises de Naruto, Ben 10 e Bakugan. Adult Swim foi cancelado no Brasil após reclamações de pais. Mesmo assim, surgiram boas animações como Mansão Foster, Flapjack, Chowder e o próprio Ben 10, que virou um fenômeno comercial."
+    imageSource: imgcity,
+    description: "A era recebeu esse nome por causa de seus bumpers, que se passavam em uma cidade criada por computação gráfica e apresentavam personagens do Cartoon Network interagindo entre si. Esses bumpers foram produzidos pela empresa australiana Animal Logic. A era City é notável pelo novo logotipo que trouxe consigo, bem como pela locutora (uma atriz da Califórnia chamada Nicole Vicius) e pelo slogan This is Cartoon Network.",
+    fullDescription: "A era City viu o surgimento de novas e bem-sucedidas séries originais do Cartoon Network , que começaram a substituir tanto os desenhos animados clássicos quanto os antigos desenhos animados da série Cartoon Cartoons. Um número maior de filmes com atores reais também começou a ser exibido no Cartoon Network durante essa era."
   },
   {
     id: 5,
     title: "2010–2012: Era Toonix (Fundo do Poço)",
     years: "2010–2012",
-    description: "Considerada o fundo do poço, com mascotes genéricos, cortes de aberturas, censura e séries live-action. No entanto, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir 'Irmão do Jorel'.",
-    fullDescription: "A Era Toonix (2010–2012) é considerada o fundo do poço. O canal adotou bumpers com mascotes genéricos, cortou aberturas e encerramentos para colocar mais comerciais, censurou episódios e encheu a grade com séries live-action de baixa qualidade. Muitos desenhos eram cancelados sem aviso e os horários viraram uma bagunça. Ainda assim, nasceram os pilares que salvariam o canal: Hora de Aventura, Apenas um Show, Gumball e o novo Ben 10. O Brasil começou a produzir animações próprias como “Irmão do Jorel”."
+    imageSource: imgtoonix,
+    description: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012.",
+    fullDescription: "Os Toonix foram introduzidos no final de 2010 nas transmissões da Cartoon Network na região da Ásia-Pacífico . O design foi usado em diversos blocos de programação (como o Toonilicious ) e posteriormente introduzido como avatares para os membros do CN Club online. Durante a reformulação da marca CHECK it (It's a Fun Thing!) em 1º de outubro de 2011, o bloco Toonilicious usa um visual semelhante ao da América Latina em suas promoções, incluindo alguns bumpers que foram editados para conter um logotipo CHECK it animado."
   },
   {
     id: 6,
-    title: "2012–Atual: Era Check It (Recuperação)",
-    years: "2012–atual",
+    title: "2012–2016: Era Check It (Recuperação)",
+    years: "2012–2016",
+    imageSource: imgcheckit,
     description: "O canal se recuperou com foco em animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso e Over The Garden Wall. Nos últimos anos, enfrenta críticas pelo excesso de comédias nonsense e reboots polêmicos.",
     fullDescription: "Com a Era Check It (2012–atual) o canal finalmente se recuperou. Os bumpers ficaram mais modernos, as censuras diminuíram, e o foco voltou a ser animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso, Over The Garden Wall e outros nacionais como Historietas Assombradas. Porém, nos últimos anos o canal voltou a enfrentar críticas pelo excesso de comédias nonsense e reboots polêmicos, como Teen Titans Go, Be Cool Scooby-Doo, Powerpuff Girls 2016 e Thundercats Roar. Ao longo dessa trajetória, o Cartoon Network oscilou entre eras de ouro e quedas drásticas, mas sempre teve um papel fundamental para a animação mundial, revelando talentos e marcando gerações."
   },
