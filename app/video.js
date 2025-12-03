@@ -4,7 +4,7 @@ import { Video } from 'expo-av';
 
 const FONT_TITLE_WEIGHT = '900'; 
 
-// Defina a largura máxima do card aqui para ser consistente.
+// ela define a largura máxima do card
 const CARD_MAX_WIDTH = 600;
 
 const DADOS_DOS_VIDEOS = [
@@ -28,19 +28,19 @@ const VideoPlayer = ({ title, file }) => {
         <View style={styles.videoCard}>
             <Text style={styles.videoTitle}>{title}</Text>
             
-            {file ? ( // Se o arquivo existir, renderiza o componente Video
+            {// Se o arquivo existir, renderiza o componente Video
                 <Video
                     source={file}
                     style={styles.video}
                     useNativeControls
                     resizeMode="contain" 
                     isLooping
-                    // Adicione uma chave única para forçar a remountagem se necessário (boa prática)
+                    // Adicione uma chave única para forçar a remounta
                     key={title} 
                 />
             ) : ( // Se o arquivo NÃO existir, renderiza o placeholder
                 <View style={[styles.video, styles.unavailableVideo]}>
-                    <Text style={styles.unavailableText}>Vídeo Indisponível 😥</Text>
+                    <Text style={styles.unavailableText}>Vídeo Indisponível</Text>
                     <Text style={styles.unavailableSubText}>(Arquivo faltando)</Text>
                 </View>
             )}
@@ -56,7 +56,6 @@ export default function ListaDeEpisodiosScreen() {
                 <Text style={styles.subHeader}>aberturas</Text>
             </View>
 
-            {/* Itera sobre TODOS os vídeos da lista */}
             {DADOS_DOS_VIDEOS.map((item) => (
                 <VideoPlayer
                     key={item.id}
