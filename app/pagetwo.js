@@ -268,9 +268,9 @@ const CARTOON_NETWORK_ERAS = [
     },
 ];
 
-// =================================================================
+
 // COMPONENTES DE ESTRUTURA
-// =================================================================
+
 const CartoonDetail = ({ title, sinopse, creator, curiosities, imageSource }) => (
     <View style={innerStylesCustom.detailCard}>
         {imageSource && (
@@ -343,9 +343,9 @@ const WebBackground = ({ children }) => (
     </View>
 );
 
-// =================================================================
+
 // COMPONENTE PRINCIPAL
-// =================================================================
+
 export default function Page() {
     
     const PageContent = (
@@ -385,13 +385,13 @@ export default function Page() {
     return PageContent;
 }
 
-// =================================================================
+
 // ESTILOS GLOBAIS E DE LAYOUT
-// =================================================================
+
 const styles = StyleSheet.create({
-    // -------------------------------------------------------------------
+   
     // ESTILOS DE CENTRALIZAÇÃO E BACKGROUND EXPANDIDO (WEB)
-    // -------------------------------------------------------------------
+
     webContainerWrapper: {
         // Garante que o container ocupe toda a largura e altura da viewport
         width: '100vw',
