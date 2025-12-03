@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, Image, Platform, StatusBar } from "react-native";
 
-// Importações de Imagens (verifique se os caminhos estão corretos)
+// os imports da imagens 
 import imgDexter from "../assets/dexter.png";
 import imgAsPowerpuffGirls from "../assets/As Powerpuff Girls.png";
 import imgjohnnybravo from "../assets/johnny bravo.png";
