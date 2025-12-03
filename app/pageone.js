@@ -17,6 +17,8 @@ import imgpowerhouse from "../assets/powerhouse.webp";
 import imgcity from "../assets/city.jpeg"; 
 import imgtoonix from "../assets/toonix.webp"; 
 import imgcheckit from "../assets/checkit.webp"; 
+import imgdimen from "../assets/dimensional.webp"; 
+
 
 
 // =================================================================
@@ -61,21 +63,27 @@ const historyData = [
     years: "2010–2012",
     imageSource: imgtoonix,
     description: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012.",
-    fullDescription: "Os Toonix foram introduzidos no final de 2010 nas transmissões da Cartoon Network na região da Ásia-Pacífico . O design foi usado em diversos blocos de programação (como o Toonilicious ) e posteriormente introduzido como avatares para os membros do CN Club online. Durante a reformulação da marca CHECK it (It's a Fun Thing!) em 1º de outubro de 2011, o bloco Toonilicious usa um visual semelhante ao da América Latina em suas promoções, incluindo alguns bumpers que foram editados para conter um logotipo CHECK it animado."
+    fullDescription: "Toonix foi a 5ª era do Cartoon Network América Latina (4ª no Brasil), substituindo o CN City . Originalmente, foram usados ​​no site do Cartoon Network América Latina em 2008 como parte do CN 2.0. Depois disso, o Cartoon Network América Latina  usou o visual Toonix para sua identidade visual na tela de 5 de agosto de 2010 a 3 de setembro de 2012. Os Toonix foram introduzidos no final de 2010 nas transmissões da Cartoon Network na região da Ásia-Pacífico . O design foi usado em diversos blocos de programação (como o Toonilicious ) e posteriormente introduzido como avatares para os membros do CN Club online. Durante a reformulação da marca CHECK it (It's a Fun Thing!) em 1º de outubro de 2011, o bloco Toonilicious usa um visual semelhante ao da América Latina em suas promoções, incluindo alguns bumpers que foram editados para conter um logotipo CHECK it animado."
   },
   {
     id: 6,
     title: "2012–2016: Era Check It (Recuperação)",
     years: "2012–2016",
     imageSource: imgcheckit,
-    description: "O canal se recuperou com foco em animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso e Over The Garden Wall. Nos últimos anos, enfrenta críticas pelo excesso de comédias nonsense e reboots polêmicos.",
-    fullDescription: "Com a Era Check It (2012–atual) o canal finalmente se recuperou. Os bumpers ficaram mais modernos, as censuras diminuíram, e o foco voltou a ser animação original. Surgiram sucessos gigantes como Steven Universo, Urso Sem Curso, Over The Garden Wall e outros nacionais como Historietas Assombradas. Porém, nos últimos anos o canal voltou a enfrentar críticas pelo excesso de comédias nonsense e reboots polêmicos, como Teen Titans Go, Be Cool Scooby-Doo, Powerpuff Girls 2016 e Thundercats Roar. Ao longo dessa trajetória, o Cartoon Network oscilou entre eras de ouro e quedas drásticas, mas sempre teve um papel fundamental para a animação mundial, revelando talentos e marcando gerações."
+    description: "CHECK it (também conhecido como It's A Fun Thing na Ásia e Austrália) foi uma nova identidade visual para o canal, apresentada pela primeira vez em 22 de março de 2010 e lançada em 29 de maio de 2010 nos EUA e em 1º de outubro de 2011 na Ásia e Austrália, sucedendo a era Noods . Essa era apresentou novos programas que definiriam a direção futura da emissora, como Adventure Time , Regular Show e The Amazing World of Gumball.",
+    fullDescription: "CHECK it (também conhecido como It's A Fun Thing na Ásia e Austrália) foi uma nova identidade visual para o canal, apresentada pela primeira vez em 22 de março de 2010 e lançada em 29 de maio de 2010 nos EUA e em 1º de outubro de 2011 na Ásia e Austrália, sucedendo a era Noods . Essa era apresentou novos programas que definiriam a direção futura da emissora, como Adventure Time , Regular Show e The Amazing World of Gumball. A décima identidade visual da emissora, criada pela Brand New School, faz uso intenso do padrão quadriculado em preto e branco que compunha o primeiro logotipo, além de diversas variações de cores CMYK e vários padrões. Em 20 de maio de 2013, os bumpers e as telas UP NEXT do canal foram reformulados com a nova identidade visual, CHECK it 3.0. Os bumpers UP NEXT, por exemplo, consistiam em um cubo giratório com a imagem animada de um personagem do próximo programa em uma paleta de cores CMYK, acompanhada de música especialmente encomendada à Impactist . Em 1º de junho de 2015, os bumpers foram reformulados novamente, utilizando gradientes acentuados e novos emojis, e passaram a ser conhecidos como CHECK it 4.0. O slogan CHECK it é uma frase recorrente em Regular Show . A partir dessa era, inicia-se um período de transição do uso de gráficos 3D para um design mais plano com cores mais vibrantes. O CHECK it 1.0 é a última era a utilizar gráficos 3D. Em alguns outros feeds internacionais, coincidiu com a era Dimensional . O feed dos Estados Unidos, em 14 de junho de 2016, adotou a era Dimensional como sucessora da era CHECK it. Até o momento, o CHECK it 4.0 é a última reformulação de marca com suporte para todos os feeds internacionais."
+  },
+  {
+  id: 7,
+    title: "2016–atual: Era Dimensional",
+    years: "2016–atual",
+    imageSource: imgdimen,
+    description: "A era Dimensional (comumente abreviada como CN Dimensional ) é a décima quarta identidade visual do Cartoon Network nos Estados Unidos, juntamente com a Mashup , e mais recentemente em todo o mundo, incluindo Canadá, América Latina, Europa, Oriente Médio, África, Ásia e Oceania. Estreou em 30 de maio de 2016 e foi criada pelo Bent Design Lab. Anteriormente conhecida como CHECK it 4.5, foi oficialmente nomeada Dimensional em 14 de junho de 2016, dando uma nova identidade ao canal, além de diversas melhorias, e sucedendo a era CHECK it.",
+    fullDescription: "A era Dimensional (comumente abreviada como CN Dimensional ) é a décima quarta identidade visual do Cartoon Network nos Estados Unidos, juntamente com a Mashup , e mais recentemente em todo o mundo, incluindo Canadá, América Latina, Europa, Oriente Médio, África, Ásia e Oceania. Estreou em 30 de maio de 2016 e foi criada pelo Bent Design Lab. Anteriormente conhecida como CHECK it 4.5, foi oficialmente nomeada Dimensional em 14 de junho de 2016, dando uma nova identidade ao canal, além de diversas melhorias, e sucedendo a era CHECK it. Foi apresentada após um vídeo promocional em duas partes com Jovens Titãs em Ação! e o revival de As Meninas Superpoderosas em 2016. Em 2017, introduziu o slogan NEW NEW NEW NEW após um vídeo promocional de novos episódios de O Incrível Mundo de Gumball em fevereiro, mas foi abandonado no verão de 2018. A era Dimensional era anteriormente conhecida como CHECK it 4.5, uma nova versão da era CHECK it que foi lançada em 29 de maio de 2010. No entanto, foi confirmado posteriormente, em 14 de junho de 2016, que passaria a ser conhecida como era Dimensional, um novo pacote de identidade visual para o canal."
   },
 ];
 
-// =================================================================
-// COMPONENTE WRAPPER PARA BACKGROUND EXPANDIDO (WEB)
-// =================================================================
+
 const WebBackground = ({ children }) => (
   <View style={styles.webContainerWrapper}>
     {children}

@@ -1,30 +1,32 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 
-export default function Page() {
+const localImageSource = require('../assets/eu.png'); 
+
+export default function SobreMimGabriel() {
   return (
     <View style={styles.container}>
-      {/* Remover as formas de fundo para um visual mais limpo e reto, mantendo o fundo vibrante */}
       
       <View style={styles.card}>
         <Image
-          // Substitua esta linha pela URI da sua imagem ou use 'require("./seu-avatar-reduzido.png")'
-          source={{ uri: "https://via.placeholder.com/120/9C27B0/FFFFFF?text=🌟+CRIATIVO!" }}
+          source={localImageSource} 
           style={styles.avatar}
         />
         <Text style={styles.title}>
-          💥 BOOM! EU SOU A CRIATIVIDADE! 💥
+          GABRIEL MÜLLER FERREIRA NEVES 
         </Text>
-        <Text style={styles.subtitle}>
-          Esta página é uma EXPLOSÃO de ideias e alegria exagerada!
-        </Text>
-        <View style={styles.speechBubble}>
-          <Text style={styles.bubbleText}>
-            🎉 MEU MUNDO É COLORIDO E MALUCO! 🎉
+        
+        <View style={styles.detailsContainer}>
+          <Text style={styles.detailText}>
+            IDADE: 18 anos
+          </Text>
+          <Text style={styles.detailText}>
+            TURMA: 2° Info A
+          </Text>
+          <Text style={styles.detailText}>
+            CURSO: Informática
           </Text>
         </View>
-        <View style={styles.actionButton}>
-          <Text style={styles.buttonText}>CLIQUE PARA MAIS DIVERSÃO!</Text>
-        </View>
+        
       </View>
     </View>
   );
@@ -33,88 +35,88 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // Fundo vibrante, mas sem as formas flutuantes para um look mais reto
     backgroundColor: "#FF00FF", // Magenta Elétrico
     justifyContent: "center",
     alignItems: "center",
-    padding: 20, // Padding padrão para as bordas da tela
+    padding: 20, 
   },
   card: {
-    // Cartão principal menor, reto e centralizado
-    backgroundColor: "#FFFFFF", // Branco Puro
-    borderRadius: 30, // Bordas arredondadas, mas não tão exageradas
+    backgroundColor: "#FFFFFF", 
+    borderRadius: 30, 
     padding: 25,
     alignItems: "center",
-    borderWidth: 6, // Borda grossa
+    borderWidth: 6, 
     borderColor: "#00FFFF", // Ciano Neon
-    // Sombra "chapada" para um efeito cartoon
+    // Sombra "chapada"
     shadowColor: "#FFFF00", // Amarelo Neon
     shadowOffset: { width: 6, height: 6 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 15,
-    maxWidth: 380, // Limita o tamanho máximo para não ser gigante
+    maxWidth: 380, 
     width: '100%',
-    // Sem inclinação, bem reto!
   },
   avatar: {
-    // Imagem menor, centralizada no topo do card
+    // AJUSTE: MUDANÇA AQUI! De -60 para -35.
+    // Isso fará a imagem "saltar" menos para fora do cartão, ficando mais baixa.
     width: 120,
     height: 120,
     borderRadius: 60,
-    borderWidth: 8, // Borda da imagem ainda grossa e vibrante
+    borderWidth: 8, 
     borderColor: "#FF4500", // Laranja Vibrante
     marginBottom: 25,
-    marginTop: -60, // Sobe um pouco para um efeito "pop" sem ser exagerado
-    backgroundColor: "#9C27B0", // Cor do placeholder
+    marginTop: -35, // A imagem sobe menos (fica mais baixa no cartão)
+    backgroundColor: "#00FFFF", 
   },
   title: {
-    // Título ainda grande e impactante, mas um pouco menor
-    fontSize: 34,
+    fontSize: 26, 
     fontWeight: "900",
-    color: "#FF00FF", // Magenta Elétrico
-    marginBottom: 10,
-    textAlign: "center",
-    textShadowColor: "#FFFF00", // Sombra no texto
-    textShadowOffset: { width: 3, height: 3 },
-    textShadowRadius: 0,
-    letterSpacing: 1,
-  },
-  subtitle: {
-    // Subtítulo em tamanho adequado, claro e legível
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#4A4A4A", // Cinza escuro
+    color: "#FF00FF", 
     marginBottom: 20,
     textAlign: "center",
+    textShadowColor: "#FFFF00", 
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 0,
+    letterSpacing: 0.5,
+  },
+  detailsContainer: {
+    width: '100%',
+    backgroundColor: "#F0F0F0", 
+    borderRadius: 15,
+    padding: 20,
+    marginBottom: 25,
+    borderWidth: 3,
+    borderColor: "#FF4500", 
+  },
+  detailText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#4A4A4A",
+    lineHeight: 30, 
   },
   speechBubble: {
-    // Balão de fala menor e mais contido, mas ainda cartoon
-    backgroundColor: "#10e762ff", // Seu verde original
+    backgroundColor: "#10e762ff", 
     borderRadius: 25,
     paddingVertical: 12,
     paddingHorizontal: 20,
     marginTop: 15,
     borderWidth: 4,
-    borderColor: "#FFFF00", // Amarelo Neon
-    // Sem inclinação, reto!
+    borderColor: "#FFFF00", 
   },
   bubbleText: {
     color: "#FFFFFF",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 15,
     textAlign: "center",
   },
   actionButton: {
-    // Botão de ação menor, reto e com bom contraste
-    backgroundColor: "#FF4500", // Laranja Vibrante
+    backgroundColor: "#FF4500", 
     borderRadius: 20,
     paddingVertical: 14,
     paddingHorizontal: 18,
     marginTop: 25,
     borderWidth: 4,
-    borderColor: "#00FFFF", // Ciano Neon
-    // Sem inclinação, reto!
+    borderColor: "#00FFFF", 
     shadowColor: "#FF00FF",
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 1,

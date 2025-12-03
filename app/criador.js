@@ -6,6 +6,10 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaVi
  * Paleta de cores atualizada para um tema "Pop/Gummy" (Chamativo e Infantil).
  */
 
+// 1. IMPORTAÇÃO DA IMAGEM LOCAL (Assumindo que a imagem está em ./assets/ted_turner.jpg)
+// Certifique-se de que o arquivo 'ted_turner.jpg' está na pasta 'assets' do seu projeto.
+const localImage = require('../assets/ted.jpg'); 
+
 // NOVA PALETA DE CORES (Pop/Gummy: Laranja, Amarelo, Roxo e Ciano)
 const NEW_PALETTE = {
     BACKGROUND: "#FFCA28",        // Amarelo Dourado Claro - Fundo vibrante e alegre
@@ -21,7 +25,6 @@ const articleData = {
     mainTitle: "O Magnata por Trás da CNN e CN",
     subtitle: "Ted Turner: De Atlanta para o Mundo",
     badge: "LEGADO DA MÍDIA",
-    imageUrl: "https://placehold.co/600x160/8E24AA/FFFFFF?text=TED+TURNER+VISIONÁRIO", 
     cardTitle1: "Visão Geral do Canal",
     cardTitle2: "Perfil de Ted Turner",
     cardTitle3: "A Criação do Acervo de Desenhos",
@@ -36,15 +39,14 @@ export default function CreatorScreen() {
         <Text style={styles.highlightText}>{text}</Text>
     );
 
-    // A função renderiza a imagem ou o placeholder
+    // FUNÇÃO renderImage USANDO A IMAGEM LOCAL
     const renderImage = () => {
         return (
-            <View style={[styles.placeholderImage, { backgroundColor: NEW_PALETTE.SECONDARY_ACCENT }]}>
-                <Text style={{ textAlign: 'center', color: NEW_PALETTE.CARD_BG, fontWeight: 'bold', fontSize: 18, marginTop: 70 }}>
-                    {/* A imagem de Ted Turner seria inserida aqui no ambiente real */}
-                    TED TURNER VISIONÁRIO 
-                </Text>
-            </View>
+            <Image
+                source={localImage} // Usa o 'require' importado
+                style={styles.cardImage} // Estilo que define largura e altura
+                accessibilityLabel="Foto de Robert Edward 'Ted' Turner III"
+            />
         );
     };
 
@@ -79,7 +81,7 @@ export default function CreatorScreen() {
                     Platform.OS === 'web' && { boxShadow: `4px 6px 10px ${NEW_PALETTE.CARD_SHADOW}` }
                 ]}>
                     
-                    {/* Imagem/Placeholder (cardImage/placeholderImage) */}
+                    {/* Imagem Local Renderizada */}
                     {renderImage()}
 
                     <View style={styles.cardContent}>
@@ -251,11 +253,14 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: NEW_PALETTE.SECONDARY_ACCENT, // #8E24AA (Roxo Forte)
     },
-    placeholderImage: {
+    // ESTILO DA IMAGEM REAL: Altura de 160 e 'cover' para preencher o banner
+    cardImage: {
         width: "100%",
         height: 160,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // *** IMPORTANTE: 'cover' garante que a imagem preencha a área, mas pode cortar bordas. ***
+        // Se você quiser garantir que a imagem INTEIRA (o corpo e a cabeça) apareça, 
+        // mude para 'resizeMode: 'contain'', mas isso pode deixar espaços vazios.
+        resizeMode: 'cover', 
     },
     cardContent: {
         padding: 20,

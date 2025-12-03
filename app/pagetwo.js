@@ -51,7 +51,7 @@ const CARTOON_NETWORK_ERAS = [
                 sinopse: "é uma série de animação sobre um menino gênio, Dexter, que constrói um laboratório secreto atrás de uma estante em seu quarto para realizar experimentos científicos. A série acompanha as aventuras e problemas que surgem quando sua irmã mais velha, Dee Dee, descobre o local e atrapalha seus inventos, além dos confrontos com seu arqui-inimigo, Mandark. ",
                 imageSource: imgDexter,
                 curiosities: [
-                    "Foi um dos primeiros 'Cartoon Cartoons' completos, nascido do bloco 'What a Cartoon!'.",
+                    "O Dexter tem sotaque… mas ninguém sabe de onde, Os criadores nunca confirmaram exatamente qual é o sotaque dele. Ele foi inspirado na ideia de cientista europeu, misturando russo, alemão e francês..",
                     "O conceito original surgiu enquanto Tartakovsky estudava no CalArts.",
                     "A voz de Dexter na dublagem original (EUA) era feita por uma mulher, Christine Cavanaugh."
                 ],
@@ -60,7 +60,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "As Meninas Superpoderosas (1998)",
                 creator: "Craig McCracken",
-                sinopse: "Três meninas super-heroínas usam seus superpoderes para salvar a cidade de Townsville.",
+                sinopse: "As Meninas Superpoderosas acompanha as aventuras de Florzinha, Lindinha e Docinho, três garotinhas criadas acidentalmente em um laboratório pelo Professor Utônio ao misturar “açúcar, tempero e tudo de bom” com o misterioso Elemento X. Apesar de serem crianças do jardim de infância, elas usam seus poderes — como força sobre-humana, velocidade, voo e rajadas de energia — para proteger Townsville de criminosos, monstros gigantes, invasões alienígenas e vilões icônicos como Macaco Louco, Ele e a Gangue Gangrena. Entre salvar o mundo e lidar com a vida escolar, as meninas enfrentam desafios que misturam ação, humor e caos colorido.",
                 imageSource: imgAsPowerpuffGirls,
                 curiosities: [
                     "O curta original de 1992 chamava-se 'Whoopass Stew', mas foi mudado por censura.",
@@ -72,11 +72,11 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Johnny Bravo (1997)",
                 creator: "Van Partible",
-                sinopse: "Um fortão musculoso, auto-proclamado 'sedutor', mas ingênuo, tenta (e falha miseravelmente) em conseguir encontros.",
+                sinopse: "Johnny Bravo segue a vida de Johnny, um jovem musculoso, vaidoso e completamente convencido de que é irresistível para as mulheres — mesmo sendo sempre rejeitado por causa de seu comportamento exagerado e sua completa falta de noção. Morando com a mãe em uma cidade cheia de figuras peculiares, Johnny vive se metendo em confusões ao tentar “conquistar” alguém, o que geralmente termina em trapalhadas, pancadas cartunescas e situações absurdas. A série mistura humor físico, referências à cultura pop, paródias e o estilo clássico de galãs dos anos 50.",
                 imageSource: imgjohnnybravo,
                 curiosities: [
                     "Johnny Bravo foi inspirado em Elvis Presley e James Dean.",
-                    "O desenho foi cancelado e depois revivido para uma terceira e quarta temporada.",
+                    "Seth MacFarlane trabalhou na série. Antes de criar Family Guy, ele foi roteirista e animador em Johnny Bravo, ajudando a definir o tom humorístico.",
                     "Van Partible começou com um curta-metragem sobre Johnny Bravo enquanto estava na universidade."
                 ],
             },
@@ -84,10 +84,10 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Du, Dudu e Edu (Ed, Edd n’ Eddy) (1999)",
                 creator: "Danny Antonucci",
-                sinopse: "Três amigos com o mesmo nome fazem planos mirabolantes para conseguir dinheiro e comprar seu doce favorito: 'sazone' (jujubas grandes).",
+                sinopse: "Du, Dudu e Edu acompanha o trio de amigos — Ed (Du), Edd (Dudu) e Eddy (Edu) — que vivem em um bairro suburbano tentando ganhar dinheiro para comprar jumbos picolés, seu doce favorito. Cada episódio mostra os três elaborando planos mirabolantes para enganar as outras crianças do beco, mas tudo quase sempre dá errado de forma caótica e hilária. Enquanto Ed é o fortão bobão, Edd é o inteligente metódico e Eddy é o líder ambicioso cheio de golpes — juntos, eles criam uma comédia cheia de exageros, gritos, objetos gigantes e humor físico.",
                 imageSource: imgEdEddnEddy,
                 curiosities: [
-                    "É famoso pela sua animação 'nervosa' ou 'oscilante', que foi intencional.",
+                    "O traço “tremido” é proposital. As linhas vibrando (o famoso “boiling line”) imitam desenhos feitos à mão tradicionalmente, dando um estilo único e reconhecível.",
                     "Foi o último 'Cartoon Cartoon' original.",
                     "O criador, Danny Antonucci, é canadense."
                 ],
@@ -105,11 +105,11 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Ben 10 (2005)",
                 creator: "Man of Action",
-                sinopse: "O jovem Ben Tennyson encontra o Omnitrix, que lhe permite se transformar em dez heróis alienígenas diferentes para combater o mal.",
+                sinopse: "Ben 10 acompanha Ben Tennyson, um garoto de 10 anos que, durante uma viagem de férias com sua prima Gwen e seu avô Max, encontra o Omnitrix, um dispositivo alienígena que se prende ao seu pulso. O relógio permite que Ben se transforme em diferentes espécies alienígenas, cada uma com poderes únicos, como força extrema, fogo, velocidade, invisibilidade e muito mais. Ao longo da jornada, Ben precisa aprender a usar o Omnitrix com responsabilidade enquanto enfrenta vilões como Vilgax e outros seres intergalácticos, além de lidar com a própria imaturidade e impulsividade. A série mistura ação, humor e ficção científica, mostrando a evolução de Ben como herói e como pessoa.",
                 imageSource: imgben10,
                 curiosities: [
-                    "A equipe 'Man of Action' é um coletivo de quatro criadores de quadrinhos.",
-                    "Ben 10 foi um sucesso comercial tão grande que gerou quatro séries originais e três reboots.",
+                    "O Omnitrix foi inspirado em relógios de merchandising dos anos 90. Os criadores queriam um objeto simples que crianças imaginassem usar — e virou um dos itens mais vendidos do Cartoon Network.",
+                    "O Ben originalmente teria 11 alienígenas. No começo do projeto, o nome seria Ben 11, mas a equipe decidiu reduzir para 10 para ficar mais marcante.",
                     "A série foi ao ar com o canal passando pela crise de identidade da 'Era City'."
                 ],
             },
@@ -117,7 +117,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "A Mansão Foster para Amigos Imaginários (2004)",
                 creator: "Craig McCracken",
-                sinopse: "Mac visita diariamente a Mansão Foster, um lar para amigos imaginários abandonados, para passar tempo com seu amigo Bloo.",
+                sinopse: "Mansão Foster para Amigos Imaginários se passa em um mundo onde amigos imaginários ganham forma física quando uma criança os cria. Quando a criança cresce e não pode mais cuidar deles, esses amigos são levados para a Mansão Foster, um enorme orfanato comandado pela bondosa Madame Foster. O protagonista, Mac, é um garoto de 8 anos que visita a mansão todos os dias para ver seu amigo imaginário Blooregard Q. Kazoo (Bloo), uma criatura azul travessa e egoísta. Lá, eles convivem com dezenas de amigos imaginários bizarros, divertidos e únicos, vivendo aventuras caóticas, disputas internas e desafios emocionantes ligados a amizade, mudança e responsabilidade.",
                 imageSource: imgFostersHomeforImaginaryFriends,
                 curiosities: [
                     "Foi a primeira série de McCracken após 'As Meninas Superpoderosas'.",
@@ -129,19 +129,19 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "As Terríveis Aventuras de Billy e Mandy (2001 – seguiu forte até 2007)",
                 creator: "Maxwell Atoms",
-                sinopse: "Duas crianças, o ingênuo Billy e a cínica Mandy, forçam o Ceifador (Grim) a ser seu melhor amigo.",
+                sinopse: "As Terríveis Aventuras de Billy e Mandy acompanha Billy, um garoto extremamente ingênuo e bobalhão, e Mandy, uma menina fria, sombria e sempre séria. Depois de vencerem uma aposta contra o Puro Osso (Grim) — a própria Morte — os dois obrigam Grim a ser seu melhor amigo para sempre. A partir daí, o trio vive aventuras absurdas envolvendo criaturas sobrenaturais, monstros, deuses antigos, invasões dimensionais e muito humor macabro. A série brinca com terror, fantasia e nonsense, misturando caos, sarcasmo e situações completamente imprevisíveis.",
                 imageSource: imgthegrimadventuresofbillymandy,
                 curiosities: [
-                    "O desenho começou como um segmento do 'Grim & Evil'.",
+                    "Billy & Mandy surgiu de um curta chamado “Grim & Evil”. No início, a série era dividida com outro desenho chamado Mau e o Mal Encarnado, mas Billy & Mandy foi tão popular que ganhou série própria.",
                     "Maxwell Atoms buscou inspiração em desenhos macabros de sua infância.",
-                    "O Ceifador é frequentemente humilhado e tratado como servo pelas crianças."
+                    "O Puro Osso tem sotaque jamaicano por acaso. O dublador original improvisou o sotaque em um teste, e o criador achou tão engraçado que virou oficial."
                 ],
             },
             {
                 type: "detail",
                 title: "Chowder (2007)",
                 creator: "C. H. Greenblatt",
-                sinopse: "As aventuras de Chowder, um jovem aprendiz de chef fofo, mas desastrado, que trabalha na empresa de catering Mung Daal.",
+                sinopse: "Chowder se passa na colorida e caótica cidade de Marmalandia, onde o jovem aprendiz de chef Chowder vive trabalhando na cozinha do mestre Mung Daal. Chowder é curioso, guloso e sempre atrapalhado, e por isso acaba transformando qualquer receita em uma aventura absurda. Junto de personagens excêntricos como Shnitzel, Trufas e a apaixonada Panini, ele enfrenta criaturas culinárias, ingredientes vivos e situações totalmente surreais. A série mistura humor pastelão, designs estranhos e muita criatividade visual, sempre brincando com comida, fantasia e quebra da lógica.",
                 imageSource: imgChowder,
                 curiosities: [
                     "C. H. Greenblatt trabalhou anteriormente em *Bob Esponja Calça Quadrada* e *Billy e Mandy*.",
@@ -152,7 +152,7 @@ const CARTOON_NETWORK_ERAS = [
         ],
     },
     {
-        era: "ERA TOONIX / NOVA ONDA CN",
+        era: "ERA CHECK IT",
         years: "2010–2018",
         color: "#FF8C00", // Laranja
         description: "Uma das eras mais influentes, marcada por criatividade, grandes fandoms e o renascimento do CN com grandes sucessos globais.",
@@ -162,7 +162,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Hora de Aventura (2010)",
                 creator: "Pendleton Ward",
-                sinopse: "Finn, o humano, e Jake, o cão, exploram a terra pós-apocalíptica e mágica de Ooo.",
+                sinopse: "Hora de Aventura acompanha Finn, o último garoto humano conhecido, e seu melhor amigo Jake, um cão mágico capaz de esticar e moldar o corpo de qualquer forma. Os dois vivem na Terra de Ooo, um mundo pós-apocalíptico colorido, cheio de reinos bizarros, criaturas mágicas e personagens excêntricos como a Princesa Jujuba, a Marceline, o Rei Gelado e muitos outros. A série combina humor, fantasia e momentos emocionais, explorando amadurecimento, identidade e a evolução das relações ao longo dos anos. As aventuras começam simples, mas o universo cresce até revelar segredos profundos sobre Ooo, a humanidade e o próprio Finn.",
                 imageSource: imgAdventureTime,
                 curiosities: [
                     "A série que definiu a nova era do CN.",
@@ -174,7 +174,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "O Incrível Mundo de Gumball (2011)",
                 creator: "Ben Bocquelet",
-                sinopse: "Acompanha Gumball Watterson (gato azul) e seu irmão adotivo Darwin (peixe dourado) em suas vidas caóticas em Elmore.",
+                sinopse: "O Incrível Mundo de Gumball acompanha o dia a dia de Gumball Watterson, um gato azul de 12 anos, e sua família completamente caótica: o peixe adotado Darwin, a irmã gênio Anais, a mãe rígida Nicole e o pai preguiçoso Ricardo. Eles vivem na cidade de Elmore, onde absolutamente tudo pode ganhar vida — de objetos a criaturas de diferentes estilos de animação. As aventuras começam de forma comum, como problemas escolares ou brigas familiares, mas sempre evoluem para situações absurdas, surreais e hilárias. A série mistura humor rápido, crítica social, referências pop e muita criatividade visual.",
                 imageSource: imgGumball,
                 curiosities: [
                     "É uma produção britânico-americana.",
@@ -186,7 +186,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Steven Universe (2013)",
                 creator: "Rebecca Sugar",
-                sinopse: "Steven Universe, um garoto meio-humano/meio-Gem, vive com as Crystal Gems, aprendendo a usar seus poderes.",
+                sinopse: "Steven Universo acompanha Steven, o único híbrido entre humano e Gem, vivendo ao lado das Crystal Gems — Garnet, Ametista e Pérola — na cidade litorânea de Beach City. Enquanto aprende a controlar seus poderes herdados de sua mãe, Rose Quartz, Steven precisa ajudar as Gems a proteger a Terra de ameaças vindas do espaço e de guerras antigas entre sua espécie. A série mistura aventura, humor e drama, explorando temas como identidade, família, traumas, empatia e crescimento emocional, enquanto Steven descobre o legado complexo que herdou.",
                 imageSource: imgStevenUniverse,
                 curiosities: [
                     "Primeira série animada do CN criada exclusivamente por uma mulher.",
@@ -198,7 +198,7 @@ const CARTOON_NETWORK_ERAS = [
                 type: "detail",
                 title: "Regular Show / Apenas um Show (2010)",
                 creator: "J. G. Quintel",
-                sinopse: "Mordecai (gaio-azul) e Rigby (guaxinim) transformam tarefas mundanas de zeladoria em aventuras surreais e perigosas.",
+                sinopse: "Apenas um Show segue Mordecai, um gaio-azul responsável e tranquilo, e Rigby, um guaxinim preguiçoso e imaturo que adora evitar trabalho. Os dois são funcionários de um parque público e vivem causando confusão enquanto tentam fugir das tarefas que o chefe Benson lhes dá. Situações simples — como arrumar o gramado, jogar videogame ou fazer um lanche — rapidamente se transformam em batalhas cósmicas, monstros gigantes, viagens no tempo e caos absoluto. A série mistura humor absurdo, ação inesperada e elementos sobrenaturais, sempre mostrando a amizade caótica da dupla.",
                 imageSource: imgRegularShow,
                 curiosities: [
                     "O desenho começou como um curta-metragem de estudante de Quintel na CalArts.",
@@ -209,7 +209,7 @@ const CARTOON_NETWORK_ERAS = [
         ],
     },
     {
-        era: "ERA CHECK IT / FASE ATUAL",
+        era: "ERA Dimensional / FASE ATUAL",
         years: "2019–presente",
         color: "#C2185B", // Rosa escuro
         description: "Com foco em *reboots*, séries digitais e híbridos de comédia. Mantém a identidade visual modernizada do canal.",
@@ -222,7 +222,7 @@ const CARTOON_NETWORK_ERAS = [
                 sinopse: "Craig Williams explora as aventuras selvagens de um riacho em sua cidade, um lugar utópico e cheio de crianças, com seus melhores amigos.",
                 imageSource: imgGreg,
                 curiosities: [
-                    "Os criadores foram roteiristas e editores de *storyboard* em *Steven Universe*.",
+                    "Os criadores foram roteiristas e editores de storyboard em Steven Universe.",
                     "A série é elogiada por sua diversidade de personagens e temas de comunidade.",
                     "O cenário do riacho é um lugar onde as crianças criam suas próprias regras."
                 ],
@@ -235,7 +235,7 @@ const CARTOON_NETWORK_ERAS = [
                 imageSource: imgteentitans,
                 
                 curiosities: [
-                    "É um *spin-off* da série *Teen Titans* (2003-2006).",
+                    "É um spin-off da série Teen Titans (2003-2006).",
                     "É um dos desenhos mais polarizadores do Cartoon Network (amado por crianças, criticado por fãs antigos).",
                     "Apesar das críticas, é um dos maiores sucessos de audiência da última década do CN."
                 ],

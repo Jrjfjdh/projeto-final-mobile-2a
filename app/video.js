@@ -20,11 +20,7 @@ const DADOS_DOS_VIDEOS = [
     { id: 'gumball', title: 'O Incrível Mundo de Gumball (2011)', file: require('../assets/videos/gumball.mp4') },
     { id: 'stevenuniverse', title: 'Steven Universe (2013)', file: require('../assets/videos/stevenuniverse.mp4') },
     { id: 'regularshow', title: 'Apenas um Show (2010)', file: require('../assets/videos/regularshow.mp4') },
-    // Itens sem vídeo
-    { id: 'omundodegreg', title: 'O Mundo de Greg (Craig of the Creek)', file: null },
-    { id: 'teentitansgo', title: 'Os Jovens Titãs em Ação!', file: null },
-    { id: 'victorevalentino', title: 'Victor e Valentino (2019)', file: null },
-    { id: 'webabybears', title: 'We Baby Bears (2022)', file: null },
+    { id: 'omundodegreg', title: 'O Mundo de Greg (Craig of the Creek)', file: require('../assets/videos/omundodegreg.mp4') },
 ];
 
 const VideoPlayer = ({ title, file }) => {
